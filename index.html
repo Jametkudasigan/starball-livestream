@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StarBallTV - Live Sports Streaming</title>
+  <title>StarBallTV - Live Sports</title>
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/starballtv/img/f1.png">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -17,7 +17,7 @@
     .controls select,.controls input{background:var(--card);color:var(--text);border:1px solid var(--border);padding:7px 12px;border-radius:8px;font-size:13px;outline:none}
     .controls select:focus,.controls input:focus{border-color:var(--accent)}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;padding:20px;max-width:1400px;margin:0 auto}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:all .3s;position:relative}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s;position:relative}
     .card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.5);border-color:rgba(248,180,0,.2)}
     .card.live{border-color:rgba(255,26,26,.3)}.card.live::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),var(--accent))}
     .card-top{padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
@@ -36,26 +36,27 @@
     .cd{font-size:11px;color:var(--text2);font-variant-numeric:tabular-nums}
     .watch-btn{background:linear-gradient(135deg,var(--accent),#e6a300);color:#000;border:none;padding:6px 16px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase}
     .watch-btn:hover{box-shadow:0 4px 12px rgba(248,180,0,.3)}
-    .overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.95);z-index:1000;flex-direction:column;justify-content:center;align-items:center}
+
+    /* Modal */
+    .overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.92);z-index:1000;justify-content:center;align-items:center}
     .overlay.active{display:flex}
-    .modal{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto}
-    .modal-title{font-size:18px;font-weight:700;margin-bottom:4px}
+    .modal{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;max-width:480px;width:92%;max-height:80vh;overflow-y:auto}
+    .modal-title{font-size:17px;font-weight:700;margin-bottom:4px}
     .modal-sub{font-size:12px;color:var(--text2);margin-bottom:16px}
-    .ch-group{margin-bottom:12px}
+    .ch-group{margin-bottom:14px}
     .ch-group-label{font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
     .ch-list{display:flex;flex-wrap:wrap;gap:6px}
-    .ch-link{display:inline-block;background:var(--bg);color:var(--text);border:1px solid var(--border);padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s}
+    .ch-link{display:inline-flex;align-items:center;gap:6px;background:var(--bg);color:var(--text);border:1px solid var(--border);padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s}
     .ch-link:hover{border-color:var(--accent);background:rgba(248,180,0,.08);color:var(--accent)}
-    .ch-link.ios{border-color:rgba(100,200,255,.2);color:#64c8ff}
-    .ch-link.ios:hover{border-color:#64c8ff;background:rgba(100,200,255,.08)}
-    .modal-close{background:none;border:1px solid var(--border);color:var(--text2);padding:8px 20px;border-radius:8px;font-size:13px;cursor:pointer;margin-top:12px;width:100%}
+    .ch-link .icon{font-size:14px}
+    .modal-close{background:none;border:1px solid var(--border);color:var(--text2);padding:8px 20px;border-radius:8px;font-size:13px;cursor:pointer;margin-top:8px;width:100%}
     .modal-close:hover{border-color:var(--text);color:var(--text)}
+
     .loading{display:flex;justify-content:center;padding:60px}
-    .spinner{width:32px;height:32px;3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+    .spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
     @keyframes spin{to{transform:rotate(360deg)}}
     .empty{text-align:center;padding:60px 20px;color:var(--text2)}
-    .note{font-size:10px;color:var(--text2);text-align:center;margin-top:8px;font-style:italic}
-    @media(max-width:768px){.grid{grid-template-columns:1fr;padding:10px}.header{padding:10px 16px}.logo{font-size:18px}.teams{gap:10px;padding:12px}.team img{width:40px;height:40px}.modal{width:95%;padding:16px}}
+    @media(max-width:768px){.grid{grid-template-columns:1fr;padding:10px}.header{padding:10px 16px}.logo{font-size:18px}.teams{gap:10px;padding:12px}.team img{width:40px;height:40px}.modal{width:96%;padding:16px}}
   </style>
 </head>
 <body>
@@ -65,89 +66,145 @@
   </div>
   <div class="controls">
     <select id="fComp"><option value="all">All Events</option></select>
-    <select id="fStatus"><option value="all">All</option><option value="live">Live</option><option value="upcoming">Upcoming</option><option value="ended">Ended</option></select>
-    <input type="text" id="fSearch" placeholder="Search...">
+    <select id="fStatus">
+      <option value="all">All</option>
+      <option value="live" selected>Live</option>
+      <option value="upcoming">Upcoming</option>
+      <option value="ended">Ended</option>
+    </select>
+    <input type="text" id="fSearch" placeholder="Search team...">
   </div>
   <div id="grid" class="grid"><div class="loading"><div class="spinner"></div></div></div>
 
+  <!-- Channel selector modal -->
   <div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
     <div class="modal">
-      <div class="modal-title" id="modalTitle">Match</div>
-      <div class="modal-sub" id="modalSub">Select a channel to watch</div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-sub">Pilih channel untuk nonton</div>
       <div id="modalChannels"></div>
-      <div class="note">Opens in new tab — stream plays directly on the source server</div>
-      <button class="modal-close" onclick="closeModal()">Close</button>
+      <button class="modal-close" onclick="closeModal()">Tutup</button>
     </div>
   </div>
 
   <script>
-    const MATCHES_API='https://serverplayer2.pages.dev/api/matches.json';
-    const SERV_API='https://serverplayer2.pages.dev/serv/';
-    const PLAYER_BASE='https://serverplayer2.pages.dev';
-    let matches=[];
+    const API = 'https://serverplayer2.pages.dev';
+    const MATCHES = API + '/api/matches.json';
+    let matches = [];
 
-    function fmtD(i){return new Date(i).toLocaleDateString('en-US',{day:'numeric',month:'short'})}
-    function fmtT(i){return new Date(i).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false})}
-    function fmtTZ(){const o=-new Date().getTimezoneOffset(),h=Math.floor(Math.abs(o)/60),m=Math.abs(o)%60;return 'UTC'+(o>=0?'+':'-')+h+(m?':'+String(m).padStart(2,'0'):'')}
-    function status(m){const n=Date.now(),s=new Date(m.dateISO).getTime(),e=m.showEnd?new Date(m.showEnd).getTime():s+2.5*36e5;return n>=e?'ended':n>=s?'live':'upcoming'}
-    function countdown(m){const d=new Date(m.dateISO).getTime()-Date.now();if(d<=0)return'';const h=Math.floor(d/36e5),mi=Math.floor((d%36e5)/6e4),s=Math.floor((d%6e4)/1e3);return h?h+'h '+mi+'m':mi?mi+'m '+s+'s':''}
-    function isSpecial(c){return /formula|f1|ufc|boxing|moto|tennis|golf|cricket/i.test(c)}
+    // Helpers
+    const $ = s => document.getElementById(s);
+    const fmtD = i => new Date(i).toLocaleDateString('en-US',{day:'numeric',month:'short'});
+    const fmtT = i => new Date(i).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false});
+    const fmtTZ = () => { const o=-new Date().getTimezoneOffset(),h=Math.floor(Math.abs(o)/60),m=Math.abs(o)%60; return 'UTC'+(o>=0?'+':'-')+h+(m?':'+String(m).padStart(2,'0'):''); };
+    const status = m => { const n=Date.now(),s=new Date(m.dateISO).getTime(),e=m.showEnd?new Date(m.showEnd).getTime():s+2.5*36e5; return n>=e?'ended':n>=s?'live':'upcoming'; };
+    const countdown = m => { const d=new Date(m.dateISO).getTime()-Date.now(); if(d<=0)return''; const h=Math.floor(d/36e5),mi=Math.floor((d%36e5)/6e4),s=Math.floor((d%6e4)/1e3); return h?h+'h '+mi+'m':mi?mi+'m '+s+'s':''; };
+    const isSpecial = c => /formula|f1|ufc|boxing|moto|tennis|golf|cricket/i.test(c);
 
-    function cardHTML(m){
-      const st=status(m),cd=countdown(m),sp=isSpecial(m.competition),slug=(m.link||'').split('/').pop().replace('.html','');
-      return '<div class="card '+st+'" onclick="openModal(\''+slug+'\',\''+m.competition.replace(/'/g,"")+' - '+m.home.name+' vs '+m.away.name+'\')"><div class="card-top"><span class="comp">'+m.competition+'</span><span class="time">'+fmtD(m.dateISO)+' '+fmtT(m.dateISO)+' '+fmtTZ()+'</span></div><div class="teams"><div class="team"><img src="'+m.home.logo+'" alt="" loading="lazy" onerror="this.style.display=\'none\'"><span class="team-name">'+m.home.name+'</span></div>'+(sp?'':'<span class="vs">VS</span>')+'<div class="team"><img src="'+m.away.logo+'" alt="" loading="lazy" onerror="this.style.display=\'none\'"><span class="team-name">'+m.away.name+'</span></div></div><div class="card-bottom"><span class="badge '+st+'">'+st.toUpperCase()+'</span>'+(cd?'<span class="cd">'+cd+'</span>':'')+(st==='live'?'<button class="watch-btn">Watch</button>':'')+'</div></div>';
+    // Card HTML
+    function cardHTML(m) {
+      const st=status(m), cd=countdown(m), sp=isSpecial(m.competition);
+      const slug=(m.link||'').split('/').pop().replace('.html','');
+      return `<div class="card ${st}" onclick="openModal('${slug}','${m.competition.replace(/'/g,"")} - ${m.home.name} vs ${m.away.name}')">
+        <div class="card-top">
+          <span class="comp">${m.competition}</span>
+          <span class="time">${fmtD(m.dateISO)} ${fmtT(m.dateISO)} ${fmtTZ()}</span>
+        </div>
+        <div class="teams">
+          <div class="team"><img src="${m.home.logo}" alt="" loading="lazy" onerror="this.style.display='none'"><span class="team-name">${m.home.name}</span></div>
+          ${sp?'':'<span class="vs">VS</span>'}
+          <div class="team"><img src="${m.away.logo}" alt="" loading="lazy" onerror="this.style.display='none'"><span class="team-name">${m.away.name}</span></div>
+        </div>
+        <div class="card-bottom">
+          <span class="badge ${st}">${st.toUpperCase()}</span>
+          ${cd?'<span class="cd">'+cd+'</span>':''}
+          ${st==='live'?'<button class="watch-btn">Watch</button>':''}
+        </div>
+      </div>`;
     }
 
-    function render(){
-      const comp=document.getElementById('fComp').value,st=document.getElementById('fStatus').value,q=document.getElementById('fSearch').value.toLowerCase();
-      let list=matches.filter(m=>{if(comp!=='all'&&m.competition!==comp)return false;const s=status(m);if(st!=='all'&&s!==st)return false;if(q&&!(m.home.name+' '+m.away.name+' '+m.competition).toLowerCase().includes(q))return false;return true});
-      list.sort((a,b)=>{const o={live:0,upcoming:1,ended:2};return o[status(a)]-o[status(b)]||new Date(a.dateISO)-new Date(b.dateISO)});
-      document.getElementById('grid').innerHTML=list.length?list.map(cardHTML).join(''):'<div class="empty">No matches</div>';
-      const comps=[...new Set(matches.map(m=>m.competition))],sel=document.getElementById('fComp'),cur=sel.value;
-      sel.innerHTML='<option value="all">All Events</option>'+comps.map(c=>'<option value="'+c+'">'+c+'</option>').join('');
-      sel.value=cur;
+    // Render grid
+    function render() {
+      const comp=$('fComp').value, st=$('fStatus').value, q=$('fSearch').value.toLowerCase();
+      let list = matches.filter(m => {
+        if(comp!=='all' && m.competition!==comp) return false;
+        const s=status(m);
+        if(st!=='all' && s!==st) return false;
+        if(q && !(m.home.name+' '+m.away.name+' '+m.competition).toLowerCase().includes(q)) return false;
+        return true;
+      });
+      list.sort((a,b) => {
+        const o={live:0,upcoming:1,ended:2};
+        return o[status(a)]-o[status(b)] || new Date(a.dateISO)-new Date(b.dateISO);
+      });
+      $('grid').innerHTML = list.length ? list.map(cardHTML).join('') : '<div class="empty">No matches found</div>';
+
+      // Update filter dropdown
+      const comps=[...new Set(matches.map(m=>m.competition))];
+      const sel=$('fComp'), cur=sel.value;
+      sel.innerHTML = '<option value="all">All Events</option>' + comps.map(c=>`<option value="${c}">${c}</option>`).join('');
+      sel.value = cur;
     }
 
-    async function openModal(slug,title){
-      document.getElementById('modalTitle').textContent=title;
-      document.getElementById('modalChannels').innerHTML='<div style="text-align:center;padding:20px"><div class="spinner" style="display:inline-block"></div></div>';
-      document.getElementById('overlay').classList.add('active');
-      try{
-        const r=await fetch(SERV_API+slug+'.json?'+Date.now());
-        if(!r.ok)throw new Error('No config');
-        const config=await r.json();
-        renderModalChannels(config);
-      }catch(e){
-        document.getElementById('modalChannels').innerHTML='<div style="color:#ff4444;text-align:center;padding:20px">No stream available</div>';
+    // Modal — fetch channel config, open direct link
+    async function openModal(slug, title) {
+      $('modalTitle').textContent = title;
+      $('modalChannels').innerHTML = '<div style="text-align:center;padding:20px"><div class="spinner" style="display:inline-block"></div></div>';
+      $('overlay').classList.add('active');
+      try {
+        const r = await fetch(API+'/serv/'+slug+'.json?'+Date.now());
+        if(!r.ok) throw new Error('No config');
+        const config = await r.json();
+        renderChannels(config);
+      } catch(e) {
+        $('modalChannels').innerHTML = '<div style="color:#ff4444;text-align:center;padding:20px">Stream belum tersedia</div>';
       }
     }
 
-    function renderModalChannels(config){
-      const c=document.getElementById('modalChannels');c.innerHTML='';
-      const groups=config.buttonsData||{};
-      for(const [lang,channels] of Object.entries(groups)){
-        const div=document.createElement('div');div.className='ch-group';
-        const label=document.createElement('div');label.className='ch-group-label';label.textContent=lang;div.appendChild(label);
-        const list=document.createElement('div');list.className='ch-list';
-        channels.forEach((ch,i)=>{
-          const a=document.createElement('a');a.className='ch-link'+(ch.label==='iOS/Safari'?' ios':'');
-          a.textContent=ch.label==='CH Auto'?lang+' '+(i+1):ch.label;
-          a.href=ch.path.startsWith('http')?ch.path:PLAYER_BASE+ch.path;
-          a.target='_blank';a.rel='noopener';
+    function renderChannels(config) {
+      const c = $('modalChannels');
+      c.innerHTML = '';
+      const groups = config.buttonsData || {};
+      for(const [lang, channels] of Object.entries(groups)) {
+        const div = document.createElement('div');
+        div.className = 'ch-group';
+        div.innerHTML = `<div class="ch-group-label">${lang}</div>`;
+        const list = document.createElement('div');
+        list.className = 'ch-list';
+        channels.forEach((ch, i) => {
+          const url = ch.path.startsWith('http') ? ch.path : API + ch.path;
+          const label = ch.label === 'CH Auto' ? `${lang} ${i+1}` : ch.label;
+          const a = document.createElement('a');
+          a.className = 'ch-link';
+          a.href = url;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.innerHTML = `<span class="icon">▶</span> ${label}`;
           list.appendChild(a);
         });
-        div.appendChild(list);c.appendChild(div);
+        div.appendChild(list);
+        c.appendChild(div);
       }
     }
 
-    function closeModal(){document.getElementById('overlay').classList.remove('active')}
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-    document.getElementById('fComp').addEventListener('change',render);
-    document.getElementById('fStatus').addEventListener('change',render);
-    document.getElementById('fSearch').addEventListener('input',render);
+    function closeModal() { $('overlay').classList.remove('active'); }
+    document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+    $('fComp').addEventListener('change', render);
+    $('fStatus').addEventListener('change', render);
+    $('fSearch').addEventListener('input', render);
 
-    async function load(){try{const r=await fetch(MATCHES_API+'?t='+Date.now());matches=await r.json();render()}catch(e){document.getElementById('grid').innerHTML='<div class="empty">Error loading matches</div>'}}
-    setInterval(load,30000);setInterval(render,1000);load();
+    // Load matches
+    async function load() {
+      try {
+        const r = await fetch(MATCHES+'?t='+Date.now());
+        matches = await r.json();
+        render();
+      } catch(e) {
+        $('grid').innerHTML = '<div class="empty">Gagal load jadwal</div>';
+      }
+    }
+    setInterval(load, 30000);
+    setInterval(render, 1000);
+    load();
   </script>
 </body>
 </html>
