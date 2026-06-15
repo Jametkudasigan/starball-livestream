@@ -161,11 +161,8 @@
     }
 
     function play(url) {
-      // Try popup first, fallback to same-tab
-      const w = window.open(url, '_blank');
-      if (!w || w.closed || typeof w.closed === 'undefined') {
-        window.location.href = url;
-      }
+      // Go through redirect page to strip referrer (allow.js checks document.referrer)
+      window.location.href = 'go.html?u=' + encodeURIComponent(url);
     }
 
     function renderChannels(config) {

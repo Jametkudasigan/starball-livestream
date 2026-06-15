@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="referrer" content="no-referrer">
+</head>
+<body>
+<script>
+// Strip referrer: navigate with no-referrer policy
+var u = new URLSearchParams(window.location.search).get('u');
+if (u) {
+  window.location.replace(decodeURIComponent(u));
+} else {
+  window.location.replace('/');
+}
+</script>
+</body>
+</html>
