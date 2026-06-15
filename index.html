@@ -6,59 +6,53 @@
   <title>StarBallTV - Live Sports Streaming</title>
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/starballtv/img/f1.png">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg: #0a0a0f; --card: #14141c; --accent: #f8b400; --accent2: #ff1a1a;
-      --text: #e2e8f0; --text2: #94a3b8; --border: rgba(255,255,255,0.06);
-    }
-    body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; min-height: 100vh; overflow-x: hidden; }
-    .header { background: linear-gradient(180deg, rgba(20,20,28,0.98), rgba(10,10,15,0.95)); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); }
-    .logo { font-size: 22px; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; }
-    .logo span { color: #fff; }
-    .live-dot { width: 8px; height: 8px; background: var(--accent2); border-radius: 50%; animation: pulse 2s infinite; display: inline-block; margin-right: 6px; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-    .controls { display: flex; gap: 8px; padding: 10px 24px; background: rgba(20,20,28,0.8); border-bottom: 1px solid var(--border); flex-wrap: wrap; }
-    .controls select, .controls input { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 7px 12px; border-radius: 8px; font-size: 13px; outline: none; }
-    .controls select:focus, .controls input:focus { border-color: var(--accent); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; padding: 20px; max-width: 1400px; margin: 0 auto; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; cursor: pointer; transition: all 0.3s; position: relative; }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-color: rgba(248,180,0,0.2); }
-    .card.live { border-color: rgba(255,26,26,0.3); }
-    .card.live::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
-    .card-top { padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; }
-    .comp { font-size: 10px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-    .time { font-size: 11px; color: var(--text2); }
-    .teams { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 16px 14px; }
-    .team { display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; }
-    .team img { width: 48px; height: 48px; object-fit: contain; }
-    .team-name { font-size: 13px; font-weight: 600; text-align: center; }
-    .vs { font-size: 16px; font-weight: 800; color: var(--text2); }
-    .card-bottom { padding: 10px 14px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-    .badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .badge.live { background: rgba(255,26,26,0.15); color: #ff4444; }
-    .badge.upcoming { background: rgba(248,180,0,0.1); color: var(--accent); }
-    .badge.ended { background: rgba(148,163,184,0.1); color: var(--text2); }
-    .cd { font-size: 11px; color: var(--text2); font-variant-numeric: tabular-nums; }
-    .watch-btn { background: linear-gradient(135deg, var(--accent), #e6a300); color: #000; border: none; padding: 6px 16px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer; text-transform: uppercase; }
-    .watch-btn:hover { box-shadow: 0 4px 12px rgba(248,180,0,0.3); }
-    /* Player modal */
-    .overlay { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.97); z-index:1000; flex-direction:column; }
-    .overlay.active { display:flex; }
-    .player-bar { display:flex; justify-content:space-between; align-items:center; padding:10px 16px; background:rgba(20,20,28,0.98); border-bottom:1px solid var(--border); gap:8px; flex-wrap:wrap; }
-    .player-info { font-size:13px; font-weight:600; }
-    .player-channels { display:flex; gap:4px; flex-wrap:wrap; }
-    .ch-btn { background:var(--card); color:var(--text); border:1px solid var(--border); padding:4px 10px; border-radius:6px; font-size:11px; cursor:pointer; font-weight:600; }
-    .ch-btn.active { background:var(--accent); color:#000; border-color:var(--accent); }
-    .ch-btn:hover { border-color:var(--accent); }
-    .close-btn { background:none; border:none; color:var(--text2); font-size:22px; cursor:pointer; padding:4px 8px; line-height:1; }
-    .close-btn:hover { color:#fff; }
-    .player-wrap { flex:1; position:relative; }
-    .player-frame { width:100%; height:100%; border:none; background:#000; }
-    .loading { display:flex; justify-content:center; padding:60px; }
-    .spinner { width:32px; height:32px; border:3px solid var(--border); border-top-color:var(--accent); border-radius:50%; animation:spin 0.8s linear infinite; }
-    @keyframes spin { to{transform:rotate(360deg)} }
-    .empty { text-align:center; padding:60px 20px; color:var(--text2); }
-    @media(max-width:768px) { .grid{grid-template-columns:1fr;padding:10px} .header{padding:10px 16px} .logo{font-size:18px} .teams{gap:10px;padding:12px} .team img{width:40px;height:40px} }
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#0a0a0f;--card:#14141c;--accent:#f8b400;--accent2:#ff1a1a;--text:#e2e8f0;--text2:#94a3b8;--border:rgba(255,255,255,0.06)}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;min-height:100vh}
+    .header{background:linear-gradient(180deg,rgba(20,20,28,.98),rgba(10,10,15,.95));border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+    .logo{font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-.5px}.logo span{color:#fff}
+    .live-dot{width:8px;height:8px;background:var(--accent2);border-radius:50%;animation:pulse 2s infinite;display:inline-block;margin-right:6px}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    .controls{display:flex;gap:8px;padding:10px 24px;background:rgba(20,20,28,.8);border-bottom:1px solid var(--border);flex-wrap:wrap}
+    .controls select,.controls input{background:var(--card);color:var(--text);border:1px solid var(--border);padding:7px 12px;border-radius:8px;font-size:13px;outline:none}
+    .controls select:focus,.controls input:focus{border-color:var(--accent)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;padding:20px;max-width:1400px;margin:0 auto}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:all .3s;position:relative}
+    .card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.5);border-color:rgba(248,180,0,.2)}
+    .card.live{border-color:rgba(255,26,26,.3)}.card.live::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),var(--accent))}
+    .card-top{padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
+    .comp{font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+    .time{font-size:11px;color:var(--text2)}
+    .teams{display:flex;align-items:center;justify-content:center;gap:16px;padding:16px 14px}
+    .team{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}
+    .team img{width:48px;height:48px;object-fit:contain}
+    .team-name{font-size:13px;font-weight:600;text-align:center}
+    .vs{font-size:16px;font-weight:800;color:var(--text2)}
+    .card-bottom{padding:10px 14px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.5px}
+    .badge.live{background:rgba(255,26,26,.15);color:#ff4444}
+    .badge.upcoming{background:rgba(248,180,0,.1);color:var(--accent)}
+    .badge.ended{background:rgba(148,163,184,.1);color:var(--text2)}
+    .cd{font-size:11px;color:var(--text2);font-variant-numeric:tabular-nums}
+    .watch-btn{background:linear-gradient(135deg,var(--accent),#e6a300);color:#000;border:none;padding:6px 16px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase}
+    .watch-btn:hover{box-shadow:0 4px 12px rgba(248,180,0,.3)}
+    .overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.97);z-index:1000;flex-direction:column}
+    .overlay.active{display:flex}
+    .player-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:rgba(20,20,28,.98);border-bottom:1px solid var(--border);gap:8px;flex-wrap:wrap}
+    .player-info{font-size:13px;font-weight:600}
+    .player-channels{display:flex;gap:4px;flex-wrap:wrap}
+    .ch-btn{background:var(--card);color:var(--text);border:1px solid var(--border);padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;font-weight:600}
+    .ch-btn.active{background:var(--accent);color:#000;border-color:var(--accent)}
+    .ch-btn:hover{border-color:var(--accent)}
+    .close-btn{background:none;border:none;color:var(--text2);font-size:22px;cursor:pointer;padding:4px 8px;line-height:1}
+    .close-btn:hover{color:#fff}
+    .player-wrap{flex:1;position:relative;background:#000}
+    .player-frame{width:100%;height:100%;border:none;background:#000}
+    .loading{display:flex;justify-content:center;padding:60px}
+    .spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .empty{text-align:center;padding:60px 20px;color:var(--text2)}
+    @media(max-width:768px){.grid{grid-template-columns:1fr;padding:10px}.header{padding:10px 16px}.logo{font-size:18px}.teams{gap:10px;padding:12px}.team img{width:40px;height:40px}}
   </style>
 </head>
 <body>
@@ -68,16 +62,10 @@
   </div>
   <div class="controls">
     <select id="fComp"><option value="all">All Events</option></select>
-    <select id="fStatus">
-      <option value="all">All</option>
-      <option value="live">Live</option>
-      <option value="upcoming">Upcoming</option>
-      <option value="ended">Ended</option>
-    </select>
+    <select id="fStatus"><option value="all">All</option><option value="live">Live</option><option value="upcoming">Upcoming</option><option value="ended">Ended</option></select>
     <input type="text" id="fSearch" placeholder="Search...">
   </div>
   <div id="grid" class="grid"><div class="loading"><div class="spinner"></div></div></div>
-
   <div class="overlay" id="overlay">
     <div class="player-bar">
       <div class="player-info" id="playerInfo">Stream</div>
@@ -88,126 +76,68 @@
       <iframe class="player-frame" id="playerFrame" allowfullscreen allow="autoplay; encrypted-media; fullscreen"></iframe>
     </div>
   </div>
-
   <script>
-    const MATCHES_API = 'https://serverplayer2.pages.dev/api/matches.json';
-    const SERV_API = 'https://serverplayer2.pages.dev/serv/';
-    const PLAYER_BASE = 'https://serverplayer2.pages.dev';
-    let matches = [], currentConfig = null;
+    const MATCHES_API='https://serverplayer2.pages.dev/api/matches.json';
+    const SERV_API='https://serverplayer2.pages.dev/serv/';
+    const PLAYER_BASE='https://serverplayer2.pages.dev';
+    let matches=[],currentConfig=null;
 
-    function fmtD(iso) { return new Date(iso).toLocaleDateString('en-US',{day:'numeric',month:'short'}); }
-    function fmtT(iso) { return new Date(iso).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false}); }
-    function fmtTZ() { const o=-new Date().getTimezoneOffset(),h=Math.floor(Math.abs(o)/60),m=Math.abs(o)%60; return 'UTC'+(o>=0?'+':'-')+h+(m?':'+String(m).padStart(2,'0'):''); }
-    function status(m) { const n=Date.now(),s=new Date(m.dateISO).getTime(),e=m.showEnd?new Date(m.showEnd).getTime():s+2.5*36e5; return n>=e?'ended':n>=s?'live':'upcoming'; }
-    function countdown(m) { const d=new Date(m.dateISO).getTime()-Date.now(); if(d<=0)return''; const h=Math.floor(d/36e5),mi=Math.floor((d%36e5)/6e4),s=Math.floor((d%6e4)/1e3); return h?h+'h '+mi+'m':mi?mi+'m '+s+'s':''; }
-    function isSpecial(c) { return /formula|f1|ufc|boxing|moto|tennis|golf|cricket/i.test(c); }
+    function fmtD(i){return new Date(i).toLocaleDateString('en-US',{day:'numeric',month:'short'})}
+    function fmtT(i){return new Date(i).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false})}
+    function fmtTZ(){const o=-new Date().getTimezoneOffset(),h=Math.floor(Math.abs(o)/60),m=Math.abs(o)%60;return 'UTC'+(o>=0?'+':'-')+h+(m?':'+String(m).padStart(2,'0'):'')}
+    function status(m){const n=Date.now(),s=new Date(m.dateISO).getTime(),e=m.showEnd?new Date(m.showEnd).getTime():s+2.5*36e5;return n>=e?'ended':n>=s?'live':'upcoming'}
+    function countdown(m){const d=new Date(m.dateISO).getTime()-Date.now();if(d<=0)return'';const h=Math.floor(d/36e5),mi=Math.floor((d%36e5)/6e4),s=Math.floor((d%6e4)/1e3);return h?h+'h '+mi+'m':mi?mi+'m '+s+'s':''}
+    function isSpecial(c){return /formula|f1|ufc|boxing|moto|tennis|golf|cricket/i.test(c)}
 
-    function cardHTML(m) {
+    function cardHTML(m){
       const st=status(m),cd=countdown(m),sp=isSpecial(m.competition);
-      const title=sp?m.home.name:m.home.name+' vs '+m.away.name;
-      return `<div class="card ${st}" data-comp="${m.competition}" data-status="${st}" data-slug="${(m.link||'').split('/').pop().replace('.html','')}" onclick="openStream(this)">
-        <div class="card-top"><span class="comp">${m.competition}</span><span class="time">${fmtD(m.dateISO)} ${fmtT(m.dateISO)} ${fmtTZ()}</span></div>
-        <div class="teams">
-          <div class="team"><img src="${m.home.logo}" alt="" loading="lazy" onerror="this.style.display='none'"><span class="team-name">${m.home.name}</span></div>
-          ${sp?'':'<span class="vs">VS</span>'}
-          <div class="team"><img src="${m.away.logo}" alt="" loading="lazy" onerror="this.style.display='none'"><span class="team-name">${m.away.name}</span></div>
-        </div>
-        <div class="card-bottom">
-          <span class="badge ${st}">${st.toUpperCase()}</span>
-          ${cd?'<span class="cd">'+cd+'</span>':''}
-          ${st==='live'?'<button class="watch-btn">Watch</button>':''}
-        </div>
-      </div>`;
+      return '<div class="card '+st+'" data-comp="'+m.competition+'" data-status="'+st+'" data-slug="'+((m.link||'').split('/').pop().replace('.html',''))+'" onclick="openStream(this)"><div class="card-top"><span class="comp">'+m.competition+'</span><span class="time">'+fmtD(m.dateISO)+' '+fmtT(m.dateISO)+' '+fmtTZ()+'</span></div><div class="teams"><div class="team"><img src="'+m.home.logo+'" alt="" loading="lazy" onerror="this.style.display=\'none\'"><span class="team-name">'+m.home.name+'</span></div>'+(sp?'':'<span class="vs">VS</span>')+'<div class="team"><img src="'+m.away.logo+'" alt="" loading="lazy" onerror="this.style.display=\'none\'"><span class="team-name">'+m.away.name+'</span></div></div><div class="card-bottom"><span class="badge '+st+'">'+st.toUpperCase()+'</span>'+(cd?'<span class="cd">'+cd+'</span>':'')+(st==='live'?'<button class="watch-btn">Watch</button>':'')+'</div></div>';
     }
 
-    function render() {
-      const comp=document.getElementById('fComp').value, st=document.getElementById('fStatus').value, q=document.getElementById('fSearch').value.toLowerCase();
-      let list=matches.filter(m=>{
-        if(comp!=='all'&&m.competition!==comp)return false;
-        const s=status(m);
-        if(st!=='all'&&s!==st)return false;
-        if(q&&!(m.home.name+' '+m.away.name+' '+m.competition).toLowerCase().includes(q))return false;
-        return true;
-      });
-      list.sort((a,b)=>{const o={live:0,upcoming:1,ended:2};return o[status(a)]-o[status(b)]||new Date(a.dateISO)-new Date(b.dateISO);});
-      document.getElementById('grid').innerHTML=list.length?list.map(cardHTML).join(''):'<div class="empty">No matches found</div>';
-      // Update filter
-      const comps=[...new Set(matches.map(m=>m.competition))];
-      const sel=document.getElementById('fComp'),cur=sel.value;
+    function render(){
+      const comp=document.getElementById('fComp').value,st=document.getElementById('fStatus').value,q=document.getElementById('fSearch').value.toLowerCase();
+      let list=matches.filter(m=>{if(comp!=='all'&&m.competition!==comp)return false;const s=status(m);if(st!=='all'&&s!==st)return false;if(q&&!(m.home.name+' '+m.away.name+' '+m.competition).toLowerCase().includes(q))return false;return true});
+      list.sort((a,b)=>{const o={live:0,upcoming:1,ended:2};return o[status(a)]-o[status(b)]||new Date(a.dateISO)-new Date(b.dateISO)});
+      document.getElementById('grid').innerHTML=list.length?list.map(cardHTML).join(''):'<div class="empty">No matches</div>';
+      const comps=[...new Set(matches.map(m=>m.competition))],sel=document.getElementById('fComp'),cur=sel.value;
       sel.innerHTML='<option value="all">All Events</option>'+comps.map(c=>'<option value="'+c+'">'+c+'</option>').join('');
       sel.value=cur;
     }
 
-    async function openStream(el) {
-      const slug=el.dataset.slug;
-      if(!slug)return;
-      document.getElementById('playerInfo').textContent=el.querySelector('.comp').textContent+' - '+el.querySelector('.team-name')?.textContent;
+    async function openStream(el){
+      const slug=el.dataset.slug;if(!slug)return;
+      document.getElementById('playerInfo').textContent=el.querySelector('.comp').textContent;
       document.getElementById('overlay').classList.add('active');
-      document.getElementById('playerChannels').innerHTML='<span style="font-size:11px;color:var(--text2)">Loading channels...</span>';
-      // Fetch channel config
+      document.getElementById('playerChannels').innerHTML='<span style="font-size:11px;color:var(--text2)">Loading...</span>';
       try{
-        const r=await fetch(SERV_API+slug+'.json?'+Date.now());
-        if(!r.ok)throw new Error('No config');
-        currentConfig=await r.json();
-        renderChannels(currentConfig, 0);
-      }catch(e){
-        document.getElementById('playerChannels').innerHTML='<span style="font-size:11px;color:#ff4444">No stream available</span>';
-      }
+        const r=await fetch(SERV_API+slug+'.json?'+Date.now());if(!r.ok)throw new Error('No config');
+        currentConfig=await r.json();renderChannels(currentConfig,0);
+      }catch(e){document.getElementById('playerChannels').innerHTML='<span style="font-size:11px;color:#ff4444">No stream</span>'}
     }
 
-    function renderChannels(config, activeIdx) {
-      const container=document.getElementById('playerChannels');
-      container.innerHTML='';
-      // Collect all channels from all languages
-      const allChannels=[];
-      for(const[lang,channels] of Object.entries(config.buttonsData||{})){
-        channels.forEach((ch,i)=>{
-          allChannels.push({...ch,lang,idx:allChannels.length});
-        });
-      }
-      if(allChannels.length===0){
-        container.innerHTML='<span style="font-size:11px;color:var(--text2)">No channels</span>';
-        return;
-      }
-      allChannels.forEach((ch,i)=>{
-        const btn=document.createElement('button');
-        btn.className='ch-btn'+(i===activeIdx?' active':'');
-        btn.textContent=ch.lang+' '+(i+1)+(ch.label!=='CH Auto'?' ('+ch.label+')':'');
-        btn.onclick=()=>playChannel(ch, i);
-        container.appendChild(btn);
-      });
-      playChannel(allChannels[0], 0);
+    function renderChannels(config,idx){
+      const c=document.getElementById('playerChannels');c.innerHTML='';
+      const all=[];
+      for(const[lang,ch] of Object.entries(config.buttonsData||{}))ch.forEach(x=>all.push({...x,lang}));
+      if(!all.length){c.innerHTML='<span style="font-size:11px;color:var(--text2)">No channels</span>';return}
+      all.forEach((ch,i)=>{const b=document.createElement('button');b.className='ch-btn'+(i===idx?' active':'');b.textContent=ch.lang+' '+(i+1)+(ch.label!=='CH Auto'?' ('+ch.label+')':'');b.onclick=()=>playChannel(ch,i);c.appendChild(b)});
+      playChannel(all[0],0);
     }
 
-    function playChannel(ch, idx) {
+    function playChannel(ch,idx){
       document.querySelectorAll('.ch-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
       const path=ch.path.startsWith('http')?ch.path:PLAYER_BASE+ch.path;
       document.getElementById('playerFrame').src=path;
     }
 
-    function closePlayer() {
-      document.getElementById('overlay').classList.remove('active');
-      document.getElementById('playerFrame').src='';
-      currentConfig=null;
-    }
-
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')closePlayer();});
+    function closePlayer(){document.getElementById('overlay').classList.remove('active');document.getElementById('playerFrame').src='';currentConfig=null}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closePlayer()});
     document.getElementById('fComp').addEventListener('change',render);
     document.getElementById('fStatus').addEventListener('change',render);
     document.getElementById('fSearch').addEventListener('input',render);
 
-    async function load() {
-      try{
-        const r=await fetch(MATCHES_API+'?t='+Date.now());
-        matches=await r.json();
-        render();
-      }catch(e){
-        document.getElementById('grid').innerHTML='<div class="empty">Error: '+e.message+'</div>';
-      }
-    }
-    setInterval(load,30000);
-    setInterval(render,1000);
-    load();
+    async function load(){try{const r=await fetch(MATCHES_API+'?t='+Date.now());matches=await r.json();render()}catch(e){document.getElementById('grid').innerHTML='<div class="empty">Error</div>'}}
+    setInterval(load,30000);setInterval(render,1000);load();
   </script>
 </body>
 </html>
