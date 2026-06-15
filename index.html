@@ -46,7 +46,7 @@
     .ch-group{margin-bottom:14px}
     .ch-group-label{font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
     .ch-list{display:flex;flex-wrap:wrap;gap:6px}
-    .ch-link{display:inline-flex;align-items:center;gap:6px;background:var(--bg);color:var(--text);border:1px solid var(--border);padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s}
+    .ch-link{display:inline-flex;align-items:center;gap:6px;background:var(--bg);color:var(--text);border:1px solid var(--border);padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;font-family:inherit}
     .ch-link:hover{border-color:var(--accent);background:rgba(248,180,0,.08);color:var(--accent)}
     .ch-link .icon{font-size:14px}
     .modal-close{background:none;border:1px solid var(--border);color:var(--text2);padding:8px 20px;border-radius:8px;font-size:13px;cursor:pointer;margin-top:8px;width:100%}
@@ -160,6 +160,14 @@
       }
     }
 
+    function play(url) {
+      // Try popup first, fallback to same-tab
+      const w = window.open(url, '_blank');
+      if (!w || w.closed || typeof w.closed === 'undefined') {
+        window.location.href = url;
+      }
+    }
+
     function renderChannels(config) {
       const c = $('modalChannels');
       c.innerHTML = '';
@@ -173,13 +181,11 @@
         channels.forEach((ch, i) => {
           const url = ch.path.startsWith('http') ? ch.path : API + ch.path;
           const label = ch.label === 'CH Auto' ? `${lang} ${i+1}` : ch.label;
-          const a = document.createElement('a');
-          a.className = 'ch-link';
-          a.href = url;
-          a.target = '_blank';
-          a.rel = 'noopener';
-          a.innerHTML = `<span class="icon">▶</span> ${label}`;
-          list.appendChild(a);
+          const btn = document.createElement('button');
+          btn.className = 'ch-link';
+          btn.innerHTML = `<span class="icon">▶</span> ${label}`;
+          btn.onclick = (e) => { e.stopPropagation(); play(url); };
+          list.appendChild(btn);
         });
         div.appendChild(list);
         c.appendChild(div);
