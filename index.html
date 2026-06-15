@@ -36,23 +36,26 @@
     .cd{font-size:11px;color:var(--text2);font-variant-numeric:tabular-nums}
     .watch-btn{background:linear-gradient(135deg,var(--accent),#e6a300);color:#000;border:none;padding:6px 16px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase}
     .watch-btn:hover{box-shadow:0 4px 12px rgba(248,180,0,.3)}
-    .overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.97);z-index:1000;flex-direction:column}
+    .overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.95);z-index:1000;flex-direction:column;justify-content:center;align-items:center}
     .overlay.active{display:flex}
-    .player-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:rgba(20,20,28,.98);border-bottom:1px solid var(--border);gap:8px;flex-wrap:wrap}
-    .player-info{font-size:13px;font-weight:600}
-    .player-channels{display:flex;gap:4px;flex-wrap:wrap}
-    .ch-btn{background:var(--card);color:var(--text);border:1px solid var(--border);padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;font-weight:600}
-    .ch-btn.active{background:var(--accent);color:#000;border-color:var(--accent)}
-    .ch-btn:hover{border-color:var(--accent)}
-    .close-btn{background:none;border:none;color:var(--text2);font-size:22px;cursor:pointer;padding:4px 8px;line-height:1}
-    .close-btn:hover{color:#fff}
-    .player-wrap{flex:1;position:relative;background:#000}
-    .player-frame{width:100%;height:100%;border:none;background:#000}
+    .modal{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto}
+    .modal-title{font-size:18px;font-weight:700;margin-bottom:4px}
+    .modal-sub{font-size:12px;color:var(--text2);margin-bottom:16px}
+    .ch-group{margin-bottom:12px}
+    .ch-group-label{font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+    .ch-list{display:flex;flex-wrap:wrap;gap:6px}
+    .ch-link{display:inline-block;background:var(--bg);color:var(--text);border:1px solid var(--border);padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s}
+    .ch-link:hover{border-color:var(--accent);background:rgba(248,180,0,.08);color:var(--accent)}
+    .ch-link.ios{border-color:rgba(100,200,255,.2);color:#64c8ff}
+    .ch-link.ios:hover{border-color:#64c8ff;background:rgba(100,200,255,.08)}
+    .modal-close{background:none;border:1px solid var(--border);color:var(--text2);padding:8px 20px;border-radius:8px;font-size:13px;cursor:pointer;margin-top:12px;width:100%}
+    .modal-close:hover{border-color:var(--text);color:var(--text)}
     .loading{display:flex;justify-content:center;padding:60px}
-    .spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+    .spinner{width:32px;height:32px;3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
     @keyframes spin{to{transform:rotate(360deg)}}
     .empty{text-align:center;padding:60px 20px;color:var(--text2)}
-    @media(max-width:768px){.grid{grid-template-columns:1fr;padding:10px}.header{padding:10px 16px}.logo{font-size:18px}.teams{gap:10px;padding:12px}.team img{width:40px;height:40px}}
+    .note{font-size:10px;color:var(--text2);text-align:center;margin-top:8px;font-style:italic}
+    @media(max-width:768px){.grid{grid-template-columns:1fr;padding:10px}.header{padding:10px 16px}.logo{font-size:18px}.teams{gap:10px;padding:12px}.team img{width:40px;height:40px}.modal{width:95%;padding:16px}}
   </style>
 </head>
 <body>
@@ -66,21 +69,22 @@
     <input type="text" id="fSearch" placeholder="Search...">
   </div>
   <div id="grid" class="grid"><div class="loading"><div class="spinner"></div></div></div>
-  <div class="overlay" id="overlay">
-    <div class="player-bar">
-      <div class="player-info" id="playerInfo">Stream</div>
-      <div class="player-channels" id="playerChannels"></div>
-      <button class="close-btn" onclick="closePlayer()">&times;</button>
-    </div>
-    <div class="player-wrap">
-      <iframe class="player-frame" id="playerFrame" allowfullscreen allow="autoplay; encrypted-media; fullscreen"></iframe>
+
+  <div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
+    <div class="modal">
+      <div class="modal-title" id="modalTitle">Match</div>
+      <div class="modal-sub" id="modalSub">Select a channel to watch</div>
+      <div id="modalChannels"></div>
+      <div class="note">Opens in new tab — stream plays directly on the source server</div>
+      <button class="modal-close" onclick="closeModal()">Close</button>
     </div>
   </div>
+
   <script>
     const MATCHES_API='https://serverplayer2.pages.dev/api/matches.json';
     const SERV_API='https://serverplayer2.pages.dev/serv/';
     const PLAYER_BASE='https://serverplayer2.pages.dev';
-    let matches=[],currentConfig=null;
+    let matches=[];
 
     function fmtD(i){return new Date(i).toLocaleDateString('en-US',{day:'numeric',month:'short'})}
     function fmtT(i){return new Date(i).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false})}
@@ -90,8 +94,8 @@
     function isSpecial(c){return /formula|f1|ufc|boxing|moto|tennis|golf|cricket/i.test(c)}
 
     function cardHTML(m){
-      const st=status(m),cd=countdown(m),sp=isSpecial(m.competition);
-      return '<div class="card '+st+'" data-comp="'+m.competition+'" data-status="'+st+'" data-slug="'+((m.link||'').split('/').pop().replace('.html',''))+'" onclick="openStream(this)"><div class="card-top"><span class="comp">'+m.competition+'</span><span class="time">'+fmtD(m.dateISO)+' '+fmtT(m.dateISO)+' '+fmtTZ()+'</span></div><div class="teams"><div class="team"><img src="'+m.home.logo+'" alt="" loading="lazy" onerror="this.style.display=\'none\'"><span class="team-name">'+m.home.name+'</span></div>'+(sp?'':'<span class="vs">VS</span>')+'<div class="team"><img src="'+m.away.logo+'" alt="" loading="lazy" onerror="this.style.display=\'none\'"><span class="team-name">'+m.away.name+'</span></div></div><div class="card-bottom"><span class="badge '+st+'">'+st.toUpperCase()+'</span>'+(cd?'<span class="cd">'+cd+'</span>':'')+(st==='live'?'<button class="watch-btn">Watch</button>':'')+'</div></div>';
+      const st=status(m),cd=countdown(m),sp=isSpecial(m.competition),slug=(m.link||'').split('/').pop().replace('.html','');
+      return '<div class="card '+st+'" onclick="openModal(\''+slug+'\',\''+m.competition.replace(/'/g,"")+' - '+m.home.name+' vs '+m.away.name+'\')"><div class="card-top"><span class="comp">'+m.competition+'</span><span class="time">'+fmtD(m.dateISO)+' '+fmtT(m.dateISO)+' '+fmtTZ()+'</span></div><div class="teams"><div class="team"><img src="'+m.home.logo+'" alt="" loading="lazy" onerror="this.style.display=\'none\'"><span class="team-name">'+m.home.name+'</span></div>'+(sp?'':'<span class="vs">VS</span>')+'<div class="team"><img src="'+m.away.logo+'" alt="" loading="lazy" onerror="this.style.display=\'none\'"><span class="team-name">'+m.away.name+'</span></div></div><div class="card-bottom"><span class="badge '+st+'">'+st.toUpperCase()+'</span>'+(cd?'<span class="cd">'+cd+'</span>':'')+(st==='live'?'<button class="watch-btn">Watch</button>':'')+'</div></div>';
     }
 
     function render(){
@@ -104,39 +108,45 @@
       sel.value=cur;
     }
 
-    async function openStream(el){
-      const slug=el.dataset.slug;if(!slug)return;
-      document.getElementById('playerInfo').textContent=el.querySelector('.comp').textContent;
+    async function openModal(slug,title){
+      document.getElementById('modalTitle').textContent=title;
+      document.getElementById('modalChannels').innerHTML='<div style="text-align:center;padding:20px"><div class="spinner" style="display:inline-block"></div></div>';
       document.getElementById('overlay').classList.add('active');
-      document.getElementById('playerChannels').innerHTML='<span style="font-size:11px;color:var(--text2)">Loading...</span>';
       try{
-        const r=await fetch(SERV_API+slug+'.json?'+Date.now());if(!r.ok)throw new Error('No config');
-        currentConfig=await r.json();renderChannels(currentConfig,0);
-      }catch(e){document.getElementById('playerChannels').innerHTML='<span style="font-size:11px;color:#ff4444">No stream</span>'}
+        const r=await fetch(SERV_API+slug+'.json?'+Date.now());
+        if(!r.ok)throw new Error('No config');
+        const config=await r.json();
+        renderModalChannels(config);
+      }catch(e){
+        document.getElementById('modalChannels').innerHTML='<div style="color:#ff4444;text-align:center;padding:20px">No stream available</div>';
+      }
     }
 
-    function renderChannels(config,idx){
-      const c=document.getElementById('playerChannels');c.innerHTML='';
-      const all=[];
-      for(const[lang,ch] of Object.entries(config.buttonsData||{}))ch.forEach(x=>all.push({...x,lang}));
-      if(!all.length){c.innerHTML='<span style="font-size:11px;color:var(--text2)">No channels</span>';return}
-      all.forEach((ch,i)=>{const b=document.createElement('button');b.className='ch-btn'+(i===idx?' active':'');b.textContent=ch.lang+' '+(i+1)+(ch.label!=='CH Auto'?' ('+ch.label+')':'');b.onclick=()=>playChannel(ch,i);c.appendChild(b)});
-      playChannel(all[0],0);
+    function renderModalChannels(config){
+      const c=document.getElementById('modalChannels');c.innerHTML='';
+      const groups=config.buttonsData||{};
+      for(const [lang,channels] of Object.entries(groups)){
+        const div=document.createElement('div');div.className='ch-group';
+        const label=document.createElement('div');label.className='ch-group-label';label.textContent=lang;div.appendChild(label);
+        const list=document.createElement('div');list.className='ch-list';
+        channels.forEach((ch,i)=>{
+          const a=document.createElement('a');a.className='ch-link'+(ch.label==='iOS/Safari'?' ios':'');
+          a.textContent=ch.label==='CH Auto'?lang+' '+(i+1):ch.label;
+          a.href=ch.path.startsWith('http')?ch.path:PLAYER_BASE+ch.path;
+          a.target='_blank';a.rel='noopener';
+          list.appendChild(a);
+        });
+        div.appendChild(list);c.appendChild(div);
+      }
     }
 
-    function playChannel(ch,idx){
-      document.querySelectorAll('.ch-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
-      const path=ch.path.startsWith('http')?ch.path:PLAYER_BASE+ch.path;
-      document.getElementById('playerFrame').src=path;
-    }
-
-    function closePlayer(){document.getElementById('overlay').classList.remove('active');document.getElementById('playerFrame').src='';currentConfig=null}
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')closePlayer()});
+    function closeModal(){document.getElementById('overlay').classList.remove('active')}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
     document.getElementById('fComp').addEventListener('change',render);
     document.getElementById('fStatus').addEventListener('change',render);
     document.getElementById('fSearch').addEventListener('input',render);
 
-    async function load(){try{const r=await fetch(MATCHES_API+'?t='+Date.now());matches=await r.json();render()}catch(e){document.getElementById('grid').innerHTML='<div class="empty">Error</div>'}}
+    async function load(){try{const r=await fetch(MATCHES_API+'?t='+Date.now());matches=await r.json();render()}catch(e){document.getElementById('grid').innerHTML='<div class="empty">Error loading matches</div>'}}
     setInterval(load,30000);setInterval(render,1000);load();
   </script>
 </body>
