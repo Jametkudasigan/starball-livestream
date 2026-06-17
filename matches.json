@@ -1,0 +1,569 @@
+[
+  {
+    "id": 1,
+    "name": "beIN SPORTS XTRA (1080p)",
+    "slug": "bein-sports-xtra-1080p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://bein-xtra-bein.amagi.tv/playlist.m3u8"
+  },
+  {
+    "id": 2,
+    "name": "DirecTV Sports (1080p)",
+    "slug": "directv-sports-1080p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://latam-cache-sv2-cdn.latamlive.net/DS1_ENC_LIVE/index.mpd"
+  },
+  {
+    "id": 3,
+    "name": "ESPN Deportes (360p)",
+    "slug": "espn-deportes-360p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "http://origin.thetvapp.to/hls/espn-deportes/mono.m3u8"
+  },
+  {
+    "id": 4,
+    "name": "Fox Sports 1 (1280p)",
+    "slug": "fox-sports-1-1280p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://cors-proxy.cooks.fyi/http://190.11.225.124:5000/live/fs1_hd/playlist.m3u8"
+  },
+  {
+    "id": 5,
+    "name": "Fox Sports 2 (480p)",
+    "slug": "fox-sports-2-480p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://tvsen7.aynaott.com/foxsports2/index.m3u8"
+  },
+  {
+    "id": 6,
+    "name": "FTF Sports (720p)",
+    "slug": "ftf-sports-720p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://1657061170.rsc.cdn77.org/HLS/FTF-LINEAR.m3u8"
+  },
+  {
+    "id": 7,
+    "name": "Golf Channel Latin America",
+    "slug": "golf-channel-latin-america",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "http://181.114.57.246:4000/play/BHGDIhvdyuw/index.m3u8"
+  },
+  {
+    "id": 8,
+    "name": "NBC Sports NOW (1080p)",
+    "slug": "nbc-sports-now-1080p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://d4whmvwm0rdvi.cloudfront.net/10007/99993008/hls/master.m3u8?ads.xumo_channelId=99993008"
+  },
+  {
+    "id": 9,
+    "name": "Rally TV (1080p)",
+    "slug": "rally-tv-1080p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://rally-tv-live.akamaized.net/hls/live/2117704/RallyTV-Pri/master.m3u8"
+  },
+  {
+    "id": 10,
+    "name": "Tennis Channel (1080p)",
+    "slug": "tennis-channel-1080p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01444-tennischannelth-tennischnlintl-lggb/playlist.m3u8"
+  },
+  {
+    "id": 11,
+    "name": "TVS Boxing (360p)",
+    "slug": "tvs-boxing-360p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://rpn.bozztv.com/gusa/gusa-tvsboxing/index.m3u8"
+  },
+  {
+    "id": 12,
+    "name": "TVS Classic Sports (360p)",
+    "slug": "tvs-classic-sports-360p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://rpn.bozztv.com/gusa/gusa-tvs/index.m3u8"
+  },
+  {
+    "id": 13,
+    "name": "TVS Pinball Network (480p)",
+    "slug": "tvs-pinball-network-480p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://rpn.bozztv.com/gusa/gusa-TVSCartoonNetwork/index.m3u8"
+  },
+  {
+    "id": 14,
+    "name": "TVS Sports (720p) [Not 24/7]",
+    "slug": "tvs-sports-720p-not-24-7",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://rpn.bozztv.com/gusa/gusa-tvssports/index.m3u8"
+  },
+  {
+    "id": 15,
+    "name": "TVS Sports Bureau (720p)",
+    "slug": "tvs-sports-bureau-720p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://rpn.bozztv.com/gusa/gusa-tvssportsbureau/index.m3u8"
+  },
+  {
+    "id": 16,
+    "name": "TVS Women Sports (720p)",
+    "slug": "tvs-women-sports-720p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://rpn.bozztv.com/gusa/gusa-tvswsn/index.m3u8"
+  },
+  {
+    "id": 17,
+    "name": "W14DK-D 14.5 All Sports Television Network",
+    "slug": "w14dk-d-14-5-all-sports-televi",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://2-fss-2.streamhoster.com/pl_118/204972-2205186-1/playlist.m3u8"
+  },
+  {
+    "id": 18,
+    "name": "Willow Sports (1080p) [Geo-blocked]",
+    "slug": "willow-sports-1080p-geo-blocke",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://amg01269-amg01269c1-firetv-us-5377.playouts.now.amagi.tv/playlist.m3u8"
+  },
+  {
+    "id": 19,
+    "name": "Willow Sports (1080p)",
+    "slug": "willow-sports-1080p",
+    "country": "US",
+    "sport": true,
+    "type": "live",
+    "url": "https://d36r8jifhgsk5j.cloudfront.net/Willow_TV1080p.m3u8"
+  },
+  {
+    "id": 20,
+    "name": "ATN Bangla UK (576p)",
+    "slug": "atn-bangla-uk-576p",
+    "country": "UK",
+    "sport": true,
+    "type": "live",
+    "url": "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/atnbanglauk-off.stream/playlist.m3u8"
+  },
+  {
+    "id": 21,
+    "name": "talkSPORT (1080p)",
+    "slug": "talksport-1080p",
+    "country": "UK",
+    "sport": true,
+    "type": "live",
+    "url": "https://af7a8b4e.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctZ2JfdGFsa1NQT1JUX0hMUw/playlist.m3u8"
+  },
+  {
+    "id": 22,
+    "name": "Dhamma TV (720p) [Not 24/7]",
+    "slug": "dhamma-tv-720p-not-24-7",
+    "country": "ID",
+    "sport": true,
+    "type": "live",
+    "url": "https://b.webcache.maxindo.net.id/dhamma/dhamma.m3u8"
+  },
+  {
+    "id": 23,
+    "name": "TVRI Sport (720p)",
+    "slug": "tvri-sport-720p",
+    "country": "ID",
+    "sport": true,
+    "type": "live",
+    "url": "https://ott-balancer.tvri.go.id/live/eds/SportHD/hls/SportHD.m3u8"
+  },
+  {
+    "id": 24,
+    "name": "Baan Baan TV 73",
+    "slug": "baan-baan-tv-73",
+    "country": "TH",
+    "sport": true,
+    "type": "live",
+    "url": "https://vdo.plathong.net/live8794/live8794/playlist.m3u8"
+  },
+  {
+    "id": 25,
+    "name": "Premier Sports (1080p)",
+    "slug": "premier-sports-1080p",
+    "country": "PH",
+    "sport": true,
+    "type": "live",
+    "url": "https://amg19223-amg19223c3-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c3-amgplt0351/playlist.m3u8"
+  },
+  {
+    "id": 26,
+    "name": "Premier Sports 2 (1080p)",
+    "slug": "premier-sports-2-1080p",
+    "country": "PH",
+    "sport": true,
+    "type": "live",
+    "url": "https://amg19223-amg19223c4-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c4-amgplt0351/playlist.m3u8"
+  },
+  {
+    "id": 27,
+    "name": "Esport3 (1080p) [Geo-blocked]",
+    "slug": "esport3-1080p-geo-blocked",
+    "country": "ES",
+    "sport": true,
+    "type": "live",
+    "url": "https://directes-tv-cat.3catdirectes.cat/live-content/esport3-hls/master.m3u8"
+  },
+  {
+    "id": 28,
+    "name": "Esport3 (1080p) [Geo-blocked]",
+    "slug": "esport3-1080p-geo-blocked-es",
+    "country": "ES",
+    "sport": true,
+    "type": "live",
+    "url": "https://directes-tv-cat.3catdirectes.cat/live-origin/esport3-hls/master.m3u8"
+  },
+  {
+    "id": 29,
+    "name": "Esport3 (1080p) [Not 24/7]",
+    "slug": "esport3-1080p-not-24-7",
+    "country": "ES",
+    "sport": true,
+    "type": "live",
+    "url": "https://directes-tv-int.3catdirectes.cat/live-content/esport3-hls/master.m3u8"
+  },
+  {
+    "id": 30,
+    "name": "Esport3 (1080p) [Not 24/7]",
+    "slug": "esport3-1080p-not-24-7-es",
+    "country": "ES",
+    "sport": true,
+    "type": "live",
+    "url": "https://directes-tv-int.3catdirectes.cat/live-origin/esport3-hls/master.m3u8"
+  },
+  {
+    "id": 31,
+    "name": "MDF.1 (1080p)",
+    "slug": "mdf-1-1080p",
+    "country": "DE",
+    "sport": true,
+    "type": "live",
+    "url": "http://58bd5b7a98e04.streamlock.net/medienasa-live/mdf1_high/playlist.m3u8"
+  },
+  {
+    "id": 32,
+    "name": "More Than Sports TV (1080p)",
+    "slug": "more-than-sports-tv-1080p",
+    "country": "DE",
+    "sport": true,
+    "type": "live",
+    "url": "https://mts1.iptv-playoutcenter.de/mts/mts-web/playlist.m3u8"
+  },
+  {
+    "id": 33,
+    "name": "OF-TV Offenbach (720p)",
+    "slug": "of-tv-offenbach-720p",
+    "country": "DE",
+    "sport": true,
+    "type": "live",
+    "url": "https://5864df9ceac85.streamlock.net/germanpictures-live/_definst_/mp4:streamschedule/playlist.m3u8"
+  },
+  {
+    "id": 34,
+    "name": "OF-TV Offenbach (720p)",
+    "slug": "of-tv-offenbach-720p-de",
+    "country": "DE",
+    "sport": true,
+    "type": "live",
+    "url": "https://5864df9ceac85.streamlock.net/germanpictures-live/mp4:streamschedule/playlist.m3u8"
+  },
+  {
+    "id": 35,
+    "name": "Sportdigital FUSSBALL HD (1080p)",
+    "slug": "sportdigital-fussball-hd-1080p",
+    "country": "DE",
+    "sport": true,
+    "type": "live",
+    "url": "https://live20.bozztv.com/akamaissh101/ssh101/sddd1hdde/playlist.m3u8"
+  },
+  {
+    "id": 36,
+    "name": "SWR Fernsehen Baden-W\u00fcrttemberg (720p) [Geo-blocked]",
+    "slug": "swr-fernsehen-baden-w-rttember",
+    "country": "DE",
+    "sport": true,
+    "type": "live",
+    "url": "https://swrbwd-hls.akamaized.net/hls/live/2018672/swrbwd/master.m3u8"
+  },
+  {
+    "id": 37,
+    "name": "ACI Sport TV (1080p)",
+    "slug": "aci-sport-tv-1080p",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8.m3u8"
+  },
+  {
+    "id": 38,
+    "name": "Rai Sport 2",
+    "slug": "rai-sport-2",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "http://originstream12.rai.it/italy/raisport2_1200/master.m3u8"
+  },
+  {
+    "id": 39,
+    "name": "Rai Sport HD (1080p)",
+    "slug": "rai-sport-hd-1080p",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://srv1.adriatelekom.com/RaiSport/index.m3u8"
+  },
+  {
+    "id": 40,
+    "name": "Sportitalia (1080p)",
+    "slug": "sportitalia-1080p",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://edge-001.streamup.eu/sportitalia/sihd_abr/playlist.m3u8"
+  },
+  {
+    "id": 41,
+    "name": "Sportitalia (720p) [Geo-blocked]",
+    "slug": "sportitalia-720p-geo-blocked",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:sportitaliahd.smil/playlist.m3u8"
+  },
+  {
+    "id": 42,
+    "name": "Sportitalia 24 (720p) [Geo-blocked]",
+    "slug": "sportitalia-24-720p-geo-blocke",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:silive24.smil/playlist.m3u8"
+  },
+  {
+    "id": 43,
+    "name": "Sportitalia Live 24",
+    "slug": "sportitalia-live-24",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://di-g7ij0rwh.vo.lswcdn.net/sportitalia/silive24.smil/playlist.m3u8"
+  },
+  {
+    "id": 44,
+    "name": "Sportitalia Motori (720p) [Geo-blocked]",
+    "slug": "sportitalia-motori-720p-geo-bl",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:simotori.smil/playlist.m3u8"
+  },
+  {
+    "id": 45,
+    "name": "Sportitalia Solocalcio (1080p)",
+    "slug": "sportitalia-solocalcio-1080p",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://distribution.sportitalialive.it/sportitalia/sisolocalcio_abr/playlist.m3u8"
+  },
+  {
+    "id": 46,
+    "name": "Sportitalia Solocalcio (1080p)",
+    "slug": "sportitalia-solocalcio-1080p-it",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://edge-001.streamup.eu/sportitalia/sisolocalcio_abr/playlist.m3u8"
+  },
+  {
+    "id": 47,
+    "name": "Sportitalia Solocalcio (1080p)",
+    "slug": "sportitalia-solocalcio-1080p-it",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://italiansport-solocalcio-samsung.amagi.tv/playlist.m3u8"
+  },
+  {
+    "id": 48,
+    "name": "Sportitalia Solocalcio (720p) [Geo-blocked]",
+    "slug": "sportitalia-solocalcio-720p-ge",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:sisolocalcio.smil/playlist.m3u8"
+  },
+  {
+    "id": 49,
+    "name": "Sportitalia SoloCalcio",
+    "slug": "sportitalia-solocalcio",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://di-g7ij0rwh.vo.lswcdn.net/sportitalia/sisolocalcio.smil/playlist.m3u8"
+  },
+  {
+    "id": 50,
+    "name": "Sportitalia TV/Sportitalia/SI",
+    "slug": "sportitalia-tv-sportitalia-si",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://di-g7ij0rwh.vo.lswcdn.net/sportitalia/sihd/playlist.m3u8"
+  },
+  {
+    "id": 51,
+    "name": "SuperTennis (1080p)",
+    "slug": "supertennis-1080p",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://live-embed.supertennix.hiway.media/restreamer/supertennix_client/gpu-a-c0-16/restreamer/outgest/aa3673f1-e178-44a9-a947-ef41db73211a/manifest.m3u8"
+  },
+  {
+    "id": 52,
+    "name": "TeleFormula (720p) [Not 24/7]",
+    "slug": "teleformula-720p-not-24-7",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://wms60.tecnoxia.com/radiof/abr_radioftele/playlist.m3u8"
+  },
+  {
+    "id": 53,
+    "name": "TR Sport (480p)",
+    "slug": "tr-sport-480p",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://livetr.teleromagna.it/mia/live/playlist.m3u8"
+  },
+  {
+    "id": 54,
+    "name": "tv9 Telemaremma (576p)",
+    "slug": "tv9-telemaremma-576p",
+    "country": "IT",
+    "sport": true,
+    "type": "live",
+    "url": "https://rtmp-live-ingest-us-east-1-universe-dacast-com.akamaized.net/transmuxv1/streams/2095a288-1384-ed2e-5da0-278ccbb72295.m3u8"
+  },
+  {
+    "id": 55,
+    "name": "Africa 24 Sport (1080p)",
+    "slug": "africa-24-sport-1080p",
+    "country": "FR",
+    "sport": true,
+    "type": "live",
+    "url": "https://africa24.vedge.infomaniak.com/livecast/ik:africa24sport/manifest.m3u8"
+  },
+  {
+    "id": 56,
+    "name": "Euronews Portuguese (720p)",
+    "slug": "euronews-portuguese-720p",
+    "country": "FR",
+    "sport": true,
+    "type": "live",
+    "url": "https://6e52fb8b.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmxheHhUVi1ldV9FdXJvbmV3c1BvcnR1Z3Vlc19ITFM/playlist.m3u8"
+  },
+  {
+    "id": 57,
+    "name": "Euronews Portuguese (720p)",
+    "slug": "euronews-portuguese-720p-fr",
+    "country": "FR",
+    "sport": true,
+    "type": "live",
+    "url": "https://cdn-euronews.akamaized.net/live/eds/euronews-pt/25040/index.m3u8"
+  },
+  {
+    "id": 58,
+    "name": "SporTV (1280p)",
+    "slug": "sportv-1280p",
+    "country": "BR",
+    "sport": true,
+    "type": "live",
+    "url": "https://stm.sinalmycn.com/21000/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+  },
+  {
+    "id": 59,
+    "name": "SporTV 2 (1280p)",
+    "slug": "sportv-2-1280p",
+    "country": "BR",
+    "sport": true,
+    "type": "live",
+    "url": "https://stm.sinalmycn.com/21003/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+  },
+  {
+    "id": 60,
+    "name": "SporTV 2 Alternativo (720p)",
+    "slug": "sportv-2-alternativo-720p",
+    "country": "BR",
+    "sport": true,
+    "type": "live",
+    "url": "https://stm.sinalmycn.com/19025/video.m3u8"
+  },
+  {
+    "id": 61,
+    "name": "SporTV 3 (1080p)",
+    "slug": "sportv-3-1080p",
+    "country": "BR",
+    "sport": true,
+    "type": "live",
+    "url": "https://stm.sinalmycn.com/21006/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0"
+  },
+  {
+    "id": 62,
+    "name": "SporTV Alternativo (720p)",
+    "slug": "sportv-alternativo-720p",
+    "country": "BR",
+    "sport": true,
+    "type": "live",
+    "url": "https://stm.sinalmycn.com/19024/video.m3u8"
+  },
+  {
+    "id": 63,
+    "name": "TVCOM Macei\u00f3 (480p)",
+    "slug": "tvcom-macei-480p",
+    "country": "BR",
+    "sport": true,
+    "type": "live",
+    "url": "https://srv5.zcast.com.br/tvcommaceio/tvcommaceio/playlist.m3u8"
+  }
+]

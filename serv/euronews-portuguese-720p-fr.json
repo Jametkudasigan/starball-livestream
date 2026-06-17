@@ -1,0 +1,11 @@
+{
+  "defaultPath": "/watch?servid=euronews-portuguese-720p-fr&id=0",
+  "buttonsData": {
+    "FR": [
+      {
+        "path": "/watch?servid=euronews-portuguese-720p-fr&id=0",
+        "label": "Euronews Portuguese (720p)"
+      }
+    ]
+  }
+}

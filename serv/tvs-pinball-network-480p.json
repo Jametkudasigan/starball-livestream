@@ -1,0 +1,11 @@
+{
+  "defaultPath": "/watch?servid=tvs-pinball-network-480p&id=0",
+  "buttonsData": {
+    "US": [
+      {
+        "path": "/watch?servid=tvs-pinball-network-480p&id=0",
+        "label": "TVS Pinball Network (480p)"
+      }
+    ]
+  }
+}
