@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "defaultPath": "/watch?servid=sportitalia-1080p&id=0",
   "buttonsData": {
     "IT": [
@@ -8,4 +9,14 @@
       }
     ]
   }
+=======
+  "channels": [
+    {
+      "lang": "IT",
+      "url": "https://edge-001.streamup.eu/sportitalia/sihd_abr/playlist.m3u8",
+      "label": "Sportitalia (1080p)",
+      "type": "hls"
+    }
+  ]
+>>>>>>> 6430c66 (Self-contained streaming: hls.js player + m3u8 proxy)
 }

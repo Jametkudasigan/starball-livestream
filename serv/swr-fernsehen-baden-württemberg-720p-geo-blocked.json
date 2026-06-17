@@ -1,0 +1,10 @@
+{
+  "channels": [
+    {
+      "lang": "DE",
+      "url": "https://swrbwd-hls.akamaized.net/hls/live/2018672/swrbwd/master.m3u8",
+      "label": "SWR Fernsehen Baden-W\u00fcrttemberg (720p) [Geo-blocked]",
+      "type": "hls"
+    }
+  ]
+}

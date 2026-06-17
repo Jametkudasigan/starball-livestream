@@ -1,0 +1,10 @@
+{
+  "channels": [
+    {
+      "lang": "IT",
+      "url": "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:sisolocalcio.smil/playlist.m3u8",
+      "label": "Sportitalia Solocalcio (720p) [Geo-blocked]",
+      "type": "hls"
+    }
+  ]
+}

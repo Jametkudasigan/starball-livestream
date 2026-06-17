@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "defaultPath": "/watch?servid=ftf-sports-720p&id=0",
   "buttonsData": {
     "US": [
@@ -8,4 +9,14 @@
       }
     ]
   }
+=======
+  "channels": [
+    {
+      "lang": "US",
+      "url": "https://1657061170.rsc.cdn77.org/HLS/FTF-LINEAR.m3u8",
+      "label": "FTF Sports (720p)",
+      "type": "hls"
+    }
+  ]
+>>>>>>> 6430c66 (Self-contained streaming: hls.js player + m3u8 proxy)
 }

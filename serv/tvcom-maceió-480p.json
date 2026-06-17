@@ -1,0 +1,10 @@
+{
+  "channels": [
+    {
+      "lang": "BR",
+      "url": "https://srv5.zcast.com.br/tvcommaceio/tvcommaceio/playlist.m3u8",
+      "label": "TVCOM Macei\u00f3 (480p)",
+      "type": "hls"
+    }
+  ]
+}

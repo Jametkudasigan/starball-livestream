@@ -1,0 +1,10 @@
+{
+  "channels": [
+    {
+      "lang": "DE",
+      "url": "http://58bd5b7a98e04.streamlock.net/medienasa-live/mdf1_high/playlist.m3u8",
+      "label": "MDF.1 (1080p)",
+      "type": "hls"
+    }
+  ]
+}

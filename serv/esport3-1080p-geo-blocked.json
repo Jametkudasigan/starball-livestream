@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "defaultPath": "/watch?servid=esport3-1080p-geo-blocked&id=0",
   "buttonsData": {
     "ES": [
@@ -8,4 +9,14 @@
       }
     ]
   }
+=======
+  "channels": [
+    {
+      "lang": "ES",
+      "url": "https://directes-tv-cat.3catdirectes.cat/live-origin/esport3-hls/master.m3u8",
+      "label": "Esport3 (1080p) [Geo-blocked]",
+      "type": "hls"
+    }
+  ]
+>>>>>>> 6430c66 (Self-contained streaming: hls.js player + m3u8 proxy)
 }

@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "defaultPath": "/watch?servid=rally-tv-1080p&id=0",
   "buttonsData": {
     "US": [
@@ -8,4 +9,14 @@
       }
     ]
   }
+=======
+  "channels": [
+    {
+      "lang": "US",
+      "url": "https://rally-tv-live.akamaized.net/hls/live/2117704/RallyTV-Pri/master.m3u8",
+      "label": "Rally TV (1080p)",
+      "type": "hls"
+    }
+  ]
+>>>>>>> 6430c66 (Self-contained streaming: hls.js player + m3u8 proxy)
 }

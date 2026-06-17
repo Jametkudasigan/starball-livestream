@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "defaultPath": "/watch?servid=sportv-2-alternativo-720p&id=0",
   "buttonsData": {
     "BR": [
@@ -8,4 +9,14 @@
       }
     ]
   }
+=======
+  "channels": [
+    {
+      "lang": "BR",
+      "url": "https://stm.sinalmycn.com/19025/video.m3u8",
+      "label": "SporTV 2 Alternativo (720p)",
+      "type": "hls"
+    }
+  ]
+>>>>>>> 6430c66 (Self-contained streaming: hls.js player + m3u8 proxy)
 }

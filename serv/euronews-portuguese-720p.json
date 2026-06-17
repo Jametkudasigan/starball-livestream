@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "defaultPath": "/watch?servid=euronews-portuguese-720p&id=0",
   "buttonsData": {
     "FR": [
@@ -8,4 +9,14 @@
       }
     ]
   }
+=======
+  "channels": [
+    {
+      "lang": "FR",
+      "url": "https://cdn-euronews.akamaized.net/live/eds/euronews-pt/25040/index.m3u8",
+      "label": "Euronews Portuguese (720p)",
+      "type": "hls"
+    }
+  ]
+>>>>>>> 6430c66 (Self-contained streaming: hls.js player + m3u8 proxy)
 }

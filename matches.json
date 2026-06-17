@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+<<<<<<< HEAD
     "name": "beIN SPORTS XTRA (1080p)",
     "slug": "bein-sports-xtra-1080p",
     "country": "US",
@@ -565,5 +566,1201 @@
     "sport": true,
     "type": "live",
     "url": "https://srv5.zcast.com.br/tvcommaceio/tvcommaceio/playlist.m3u8"
+=======
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "beIN SPORTS XTRA (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=bein-sports-xtra-1080p",
+    "stream": {
+      "url": "https://bein-xtra-bein.amagi.tv/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 2,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "DirecTV Sports (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=directv-sports-1080p",
+    "stream": {
+      "url": "https://latam-cache-sv2-cdn.latamlive.net/DS1_ENC_LIVE/index.mpd",
+      "type": "dash"
+    }
+  },
+  {
+    "id": 3,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "ESPN Deportes (360p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=espn-deportes-360p",
+    "stream": {
+      "url": "http://origin.thetvapp.to/hls/espn-deportes/mono.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 4,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Fox Sports 1 (1280p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=fox-sports-1-1280p",
+    "stream": {
+      "url": "https://cors-proxy.cooks.fyi/http://190.11.225.124:5000/live/fs1_hd/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 5,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Fox Sports 2 (480p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=fox-sports-2-480p",
+    "stream": {
+      "url": "https://tvsen7.aynaott.com/foxsports2/index.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 6,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "FTF Sports (720p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=ftf-sports-720p",
+    "stream": {
+      "url": "https://1657061170.rsc.cdn77.org/HLS/FTF-LINEAR.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 7,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Golf Channel Latin America",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=golf-channel-latin-america",
+    "stream": {
+      "url": "http://181.114.57.246:4000/play/BHGDIhvdyuw/index.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 8,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "NBC Sports NOW (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=nbc-sports-now-1080p",
+    "stream": {
+      "url": "https://d4whmvwm0rdvi.cloudfront.net/10007/99993008/hls/master.m3u8?ads.xumo_channelId=99993008",
+      "type": "other"
+    }
+  },
+  {
+    "id": 9,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Rally TV (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=rally-tv-1080p",
+    "stream": {
+      "url": "https://rally-tv-live.akamaized.net/hls/live/2117704/RallyTV-Pri/master.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 10,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Tennis Channel (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=tennis-channel-1080p",
+    "stream": {
+      "url": "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01444-tennischannelth-tennischnlintl-lggb/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 11,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "TVS Boxing (360p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=tvs-boxing-360p",
+    "stream": {
+      "url": "https://rpn.bozztv.com/gusa/gusa-tvsboxing/index.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 12,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "TVS Classic Sports (360p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=tvs-classic-sports-360p",
+    "stream": {
+      "url": "https://rpn.bozztv.com/gusa/gusa-tvs/index.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 13,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "TVS Pinball Network (480p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=tvs-pinball-network-480p",
+    "stream": {
+      "url": "https://rpn.bozztv.com/gusa/gusa-TVSCartoonNetwork/index.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 14,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "TVS Sports (720p) [Not 24/7]",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=tvs-sports-720p-not-24-7",
+    "stream": {
+      "url": "https://rpn.bozztv.com/gusa/gusa-tvssports/index.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 15,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "TVS Sports Bureau (720p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=tvs-sports-bureau-720p",
+    "stream": {
+      "url": "https://rpn.bozztv.com/gusa/gusa-tvssportsbureau/index.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 16,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "TVS Women Sports (720p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=tvs-women-sports-720p",
+    "stream": {
+      "url": "https://rpn.bozztv.com/gusa/gusa-tvswsn/index.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 17,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "W14DK-D 14.5 All Sports Television Network",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=w14dk-d-145-all-sports-television-network",
+    "stream": {
+      "url": "https://2-fss-2.streamhoster.com/pl_118/204972-2205186-1/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 18,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Willow Sports (1080p) [Geo-blocked]",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=willow-sports-1080p-geo-blocked",
+    "stream": {
+      "url": "https://amg01269-amg01269c1-firetv-us-5377.playouts.now.amagi.tv/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 19,
+    "competition": "US SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Willow Sports (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "US Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=willow-sports-1080p",
+    "stream": {
+      "url": "https://d36r8jifhgsk5j.cloudfront.net/Willow_TV1080p.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 20,
+    "competition": "UK SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "ATN Bangla UK (576p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "UK Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=atn-bangla-uk-576p",
+    "stream": {
+      "url": "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/atnbanglauk-off.stream/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 21,
+    "competition": "UK SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "talkSPORT (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "UK Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=talksport-1080p",
+    "stream": {
+      "url": "https://af7a8b4e.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctZ2JfdGFsa1NQT1JUX0hMUw/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 22,
+    "competition": "ID SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Dhamma TV (720p) [Not 24/7]",
+      "logo": ""
+    },
+    "away": {
+      "name": "ID Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=dhamma-tv-720p-not-24-7",
+    "stream": {
+      "url": "https://b.webcache.maxindo.net.id/dhamma/dhamma.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 23,
+    "competition": "ID SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "TVRI Sport (720p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "ID Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=tvri-sport-720p",
+    "stream": {
+      "url": "https://ott-balancer.tvri.go.id/live/eds/SportHD/hls/SportHD.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 24,
+    "competition": "TH SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Baan Baan TV 73",
+      "logo": ""
+    },
+    "away": {
+      "name": "TH Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=baan-baan-tv-73",
+    "stream": {
+      "url": "https://vdo.plathong.net/live8794/live8794/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 25,
+    "competition": "PH SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Premier Sports (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "PH Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=premier-sports-1080p",
+    "stream": {
+      "url": "https://amg19223-amg19223c3-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c3-amgplt0351/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 26,
+    "competition": "PH SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Premier Sports 2 (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "PH Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=premier-sports-2-1080p",
+    "stream": {
+      "url": "https://amg19223-amg19223c4-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c4-amgplt0351/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 27,
+    "competition": "ES SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Esport3 (1080p) [Geo-blocked]",
+      "logo": ""
+    },
+    "away": {
+      "name": "ES Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=esport3-1080p-geo-blocked",
+    "stream": {
+      "url": "https://directes-tv-cat.3catdirectes.cat/live-content/esport3-hls/master.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 28,
+    "competition": "ES SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Esport3 (1080p) [Geo-blocked]",
+      "logo": ""
+    },
+    "away": {
+      "name": "ES Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=esport3-1080p-geo-blocked",
+    "stream": {
+      "url": "https://directes-tv-cat.3catdirectes.cat/live-origin/esport3-hls/master.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 29,
+    "competition": "ES SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Esport3 (1080p) [Not 24/7]",
+      "logo": ""
+    },
+    "away": {
+      "name": "ES Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=esport3-1080p-not-24-7",
+    "stream": {
+      "url": "https://directes-tv-int.3catdirectes.cat/live-content/esport3-hls/master.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 30,
+    "competition": "ES SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Esport3 (1080p) [Not 24/7]",
+      "logo": ""
+    },
+    "away": {
+      "name": "ES Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=esport3-1080p-not-24-7",
+    "stream": {
+      "url": "https://directes-tv-int.3catdirectes.cat/live-origin/esport3-hls/master.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 31,
+    "competition": "DE SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "MDF.1 (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "DE Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=mdf1-1080p",
+    "stream": {
+      "url": "http://58bd5b7a98e04.streamlock.net/medienasa-live/mdf1_high/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 32,
+    "competition": "DE SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "More Than Sports TV (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "DE Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=more-than-sports-tv-1080p",
+    "stream": {
+      "url": "https://mts1.iptv-playoutcenter.de/mts/mts-web/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 33,
+    "competition": "DE SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "OF-TV Offenbach (720p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "DE Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=of-tv-offenbach-720p",
+    "stream": {
+      "url": "https://5864df9ceac85.streamlock.net/germanpictures-live/_definst_/mp4:streamschedule/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 34,
+    "competition": "DE SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "OF-TV Offenbach (720p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "DE Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=of-tv-offenbach-720p",
+    "stream": {
+      "url": "https://5864df9ceac85.streamlock.net/germanpictures-live/mp4:streamschedule/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 35,
+    "competition": "DE SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Sportdigital FUSSBALL HD (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "DE Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportdigital-fussball-hd-1080p",
+    "stream": {
+      "url": "https://live20.bozztv.com/akamaissh101/ssh101/sddd1hdde/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 36,
+    "competition": "DE SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "SWR Fernsehen Baden-W\u00fcrttemberg (720p) [Geo-blocked]",
+      "logo": ""
+    },
+    "away": {
+      "name": "DE Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=swr-fernsehen-baden-w\u00fcrttemberg-720p-geo-blocked",
+    "stream": {
+      "url": "https://swrbwd-hls.akamaized.net/hls/live/2018672/swrbwd/master.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 37,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "ACI Sport TV (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=aci-sport-tv-1080p",
+    "stream": {
+      "url": "https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 38,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Rai Sport 2",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=rai-sport-2",
+    "stream": {
+      "url": "http://originstream12.rai.it/italy/raisport2_1200/master.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 39,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Rai Sport HD (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=rai-sport-hd-1080p",
+    "stream": {
+      "url": "https://srv1.adriatelekom.com/RaiSport/index.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 40,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Sportitalia (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportitalia-1080p",
+    "stream": {
+      "url": "https://edge-001.streamup.eu/sportitalia/sihd_abr/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 41,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Sportitalia (720p) [Geo-blocked]",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportitalia-720p-geo-blocked",
+    "stream": {
+      "url": "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:sportitaliahd.smil/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 42,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Sportitalia 24 (720p) [Geo-blocked]",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportitalia-24-720p-geo-blocked",
+    "stream": {
+      "url": "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:silive24.smil/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 43,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Sportitalia Live 24",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportitalia-live-24",
+    "stream": {
+      "url": "https://di-g7ij0rwh.vo.lswcdn.net/sportitalia/silive24.smil/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 44,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Sportitalia Motori (720p) [Geo-blocked]",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportitalia-motori-720p-geo-blocked",
+    "stream": {
+      "url": "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:simotori.smil/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 45,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Sportitalia Solocalcio (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportitalia-solocalcio-1080p",
+    "stream": {
+      "url": "https://distribution.sportitalialive.it/sportitalia/sisolocalcio_abr/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 46,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Sportitalia Solocalcio (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportitalia-solocalcio-1080p",
+    "stream": {
+      "url": "https://edge-001.streamup.eu/sportitalia/sisolocalcio_abr/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 47,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Sportitalia Solocalcio (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportitalia-solocalcio-1080p",
+    "stream": {
+      "url": "https://italiansport-solocalcio-samsung.amagi.tv/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 48,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Sportitalia Solocalcio (720p) [Geo-blocked]",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportitalia-solocalcio-720p-geo-blocked",
+    "stream": {
+      "url": "https://di-yx2saj20.vo.lswcdn.net/sportitalia/smil:sisolocalcio.smil/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 49,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Sportitalia SoloCalcio",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportitalia-solocalcio",
+    "stream": {
+      "url": "https://di-g7ij0rwh.vo.lswcdn.net/sportitalia/sisolocalcio.smil/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 50,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Sportitalia TV/Sportitalia/SI",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportitalia-tv-sportitalia-si",
+    "stream": {
+      "url": "https://di-g7ij0rwh.vo.lswcdn.net/sportitalia/sihd/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 51,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "SuperTennis (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=supertennis-1080p",
+    "stream": {
+      "url": "https://live-embed.supertennix.hiway.media/restreamer/supertennix_client/gpu-a-c0-16/restreamer/outgest/aa3673f1-e178-44a9-a947-ef41db73211a/manifest.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 52,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "TeleFormula (720p) [Not 24/7]",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=teleformula-720p-not-24-7",
+    "stream": {
+      "url": "https://wms60.tecnoxia.com/radiof/abr_radioftele/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 53,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "TR Sport (480p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=tr-sport-480p",
+    "stream": {
+      "url": "https://livetr.teleromagna.it/mia/live/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 54,
+    "competition": "IT SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "tv9 Telemaremma (576p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "IT Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=tv9-telemaremma-576p",
+    "stream": {
+      "url": "https://rtmp-live-ingest-us-east-1-universe-dacast-com.akamaized.net/transmuxv1/streams/2095a288-1384-ed2e-5da0-278ccbb72295.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 55,
+    "competition": "FR SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Africa 24 Sport (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "FR Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=africa-24-sport-1080p",
+    "stream": {
+      "url": "https://africa24.vedge.infomaniak.com/livecast/ik:africa24sport/manifest.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 56,
+    "competition": "FR SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Euronews Portuguese (720p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "FR Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=euronews-portuguese-720p",
+    "stream": {
+      "url": "https://6e52fb8b.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmxheHhUVi1ldV9FdXJvbmV3c1BvcnR1Z3Vlc19ITFM/playlist.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 57,
+    "competition": "FR SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "Euronews Portuguese (720p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "FR Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=euronews-portuguese-720p",
+    "stream": {
+      "url": "https://cdn-euronews.akamaized.net/live/eds/euronews-pt/25040/index.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 58,
+    "competition": "BR SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "SporTV (1280p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "BR Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportv-1280p",
+    "stream": {
+      "url": "https://stm.sinalmycn.com/21000/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0",
+      "type": "other"
+    }
+  },
+  {
+    "id": 59,
+    "competition": "BR SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "SporTV 2 (1280p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "BR Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportv-2-1280p",
+    "stream": {
+      "url": "https://stm.sinalmycn.com/21003/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0",
+      "type": "other"
+    }
+  },
+  {
+    "id": 60,
+    "competition": "BR SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "SporTV 2 Alternativo (720p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "BR Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportv-2-alternativo-720p",
+    "stream": {
+      "url": "https://stm.sinalmycn.com/19025/video.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 61,
+    "competition": "BR SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "SporTV 3 (1080p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "BR Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportv-3-1080p",
+    "stream": {
+      "url": "https://stm.sinalmycn.com/21006/video.m3u8?token=EkP2qSi13ckjQRLSIDoxI5rMZsF5rZyEYzqWjxD248ScEUPYQ0",
+      "type": "other"
+    }
+  },
+  {
+    "id": 62,
+    "competition": "BR SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "SporTV Alternativo (720p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "BR Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=sportv-alternativo-720p",
+    "stream": {
+      "url": "https://stm.sinalmycn.com/19024/video.m3u8",
+      "type": "hls"
+    }
+  },
+  {
+    "id": 63,
+    "competition": "BR SPORTS",
+    "dateISO": "2026-06-18T20:00:00Z",
+    "showEnd": "2026-06-18T23:00:00Z",
+    "home": {
+      "name": "TVCOM Macei\u00f3 (480p)",
+      "logo": ""
+    },
+    "away": {
+      "name": "BR Stream",
+      "logo": ""
+    },
+    "link": "/watch?servid=tvcom-macei\u00f3-480p",
+    "stream": {
+      "url": "https://srv5.zcast.com.br/tvcommaceio/tvcommaceio/playlist.m3u8",
+      "type": "hls"
+    }
+>>>>>>> 6430c66 (Self-contained streaming: hls.js player + m3u8 proxy)
   }
 ]

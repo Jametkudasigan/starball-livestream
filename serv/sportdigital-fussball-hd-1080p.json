@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "defaultPath": "/watch?servid=sportdigital-fussball-hd-1080p&id=0",
   "buttonsData": {
     "DE": [
@@ -8,4 +9,14 @@
       }
     ]
   }
+=======
+  "channels": [
+    {
+      "lang": "DE",
+      "url": "https://live20.bozztv.com/akamaissh101/ssh101/sddd1hdde/playlist.m3u8",
+      "label": "Sportdigital FUSSBALL HD (1080p)",
+      "type": "hls"
+    }
+  ]
+>>>>>>> 6430c66 (Self-contained streaming: hls.js player + m3u8 proxy)
 }
