@@ -1,213 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StarBallTV - Live Sports</title>
-  <link rel="icon" href="https://cdn.jsdelivr.net/gh/starballtv/img/f1.png">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    :root{--bg:#0a0a0f;--card:#14141c;--accent:#f8b400;--accent2:#ff1a1a;--text:#e2e8f0;--text2:#94a3b8;--border:rgba(255,255,255,0.06)}
-    body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;min-height:100vh}
-    .header{background:linear-gradient(180deg,rgba(20,20,28,.98),rgba(10,10,15,.95));border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
-    .logo{font-size:22px;font-weight:800;color:var(--accent);letter-spacing:-.5px}.logo span{color:#fff}
-    .live-dot{width:8px;height:8px;background:var(--accent2);border-radius:50%;animation:pulse 2s infinite;display:inline-block;margin-right:6px}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-    .controls{display:flex;gap:8px;padding:10px 24px;background:rgba(20,20,28,.8);border-bottom:1px solid var(--border);flex-wrap:wrap}
-    .controls select,.controls input{background:var(--card);color:var(--text);border:1px solid var(--border);padding:7px 12px;border-radius:8px;font-size:13px;outline:none}
-    .controls select:focus,.controls input:focus{border-color:var(--accent)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;padding:20px;max-width:1400px;margin:0 auto}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s;position:relative}
-    .card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.5);border-color:rgba(248,180,0,.2)}
-    .card.live{border-color:rgba(255,26,26,.3)}.card.live::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),var(--accent))}
-    .card-top{padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
-    .comp{font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-    .time{font-size:11px;color:var(--text2)}
-    .teams{display:flex;align-items:center;justify-content:center;gap:16px;padding:16px 14px}
-    .team{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}
-    .team img{width:48px;height:48px;object-fit:contain}
-    .team-name{font-size:13px;font-weight:600;text-align:center}
-    .vs{font-size:16px;font-weight:800;color:var(--text2)}
-    .card-bottom{padding:10px 14px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-    .badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.5px}
-    .badge.live{background:rgba(255,26,26,.15);color:#ff4444}
-    .badge.upcoming{background:rgba(248,180,0,.1);color:var(--accent)}
-    .badge.ended{background:rgba(148,163,184,.1);color:var(--text2)}
-    .cd{font-size:11px;color:var(--text2);font-variant-numeric:tabular-nums}
-    .watch-btn{background:linear-gradient(135deg,var(--accent),#e6a300);color:#000;border:none;padding:6px 16px;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase}
-    .watch-btn:hover{box-shadow:0 4px 12px rgba(248,180,0,.3)}
-
-    /* Modal */
-    .overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.92);z-index:1000;justify-content:center;align-items:center}
-    .overlay.active{display:flex}
-    .modal{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;max-width:480px;width:92%;max-height:80vh;overflow-y:auto}
-    .modal-title{font-size:17px;font-weight:700;margin-bottom:4px}
-    .modal-sub{font-size:12px;color:var(--text2);margin-bottom:16px}
-    .ch-group{margin-bottom:14px}
-    .ch-group-label{font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
-    .ch-list{display:flex;flex-wrap:wrap;gap:6px}
-    .ch-link{display:inline-flex;align-items:center;gap:6px;background:var(--bg);color:var(--text);border:1px solid var(--border);padding:8px 14px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;font-family:inherit}
-    .ch-link:hover{border-color:var(--accent);background:rgba(248,180,0,.08);color:var(--accent)}
-    .ch-link .icon{font-size:14px}
-    .modal-close{background:none;border:1px solid var(--border);color:var(--text2);padding:8px 20px;border-radius:8px;font-size:13px;cursor:pointer;margin-top:8px;width:100%}
-    .modal-close:hover{border-color:var(--text);color:var(--text)}
-
-    .loading{display:flex;justify-content:center;padding:60px}
-    .spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .empty{text-align:center;padding:60px 20px;color:var(--text2)}
-    @media(max-width:768px){.grid{grid-template-columns:1fr;padding:10px}.header{padding:10px 16px}.logo{font-size:18px}.teams{gap:10px;padding:12px}.team img{width:40px;height:40px}.modal{width:96%;padding:16px}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarBallTV - Live Sports</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0a0f; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { font-size: 36px; color: #00ff88; margin-bottom: 10px; }
+        .header p { color: #888; }
+        .filters { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .filter-btn { background: #1a1a2e; color: #fff; padding: 8px 16px; border: 1px solid #333; border-radius: 4px; cursor: pointer; }
+        .filter-btn.active { background: #00ff88; color: #000; border-color: #00ff88; }
+        .channels { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
+        .channel { background: #1a1a2e; border-radius: 8px; padding: 15px; cursor: pointer; transition: all 0.2s; border: 1px solid #333; }
+        .channel:hover { border-color: #00ff88; transform: translateY(-2px); }
+        .channel-name { font-size: 16px; font-weight: bold; margin-bottom: 5px; }
+        .channel-country { color: #888; font-size: 12px; }
+        .channel-type { color: #00ff88; font-size: 12px; }
+        .live-badge { background: #ff4444; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; margin-left: 5px; }
+        .stats { text-align: center; margin-bottom: 20px; color: #888; }
+    </style>
 </head>
 <body>
-  <div class="header">
-    <div class="logo">STAR<span>BALL</span>TV</div>
-    <div><span class="live-dot"></span><span style="font-size:12px;color:var(--text2)">LIVE</span></div>
-  </div>
-  <div class="controls">
-    <select id="fComp"><option value="all">All Events</option></select>
-    <select id="fStatus">
-      <option value="all">All</option>
-      <option value="live" selected>Live</option>
-      <option value="upcoming">Upcoming</option>
-      <option value="ended">Ended</option>
-    </select>
-    <input type="text" id="fSearch" placeholder="Search team...">
-  </div>
-  <div id="grid" class="grid"><div class="loading"><div class="spinner"></div></div></div>
-
-  <!-- Channel selector modal -->
-  <div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
-    <div class="modal">
-      <div class="modal-title" id="modalTitle"></div>
-      <div class="modal-sub">Pilih channel untuk nonton</div>
-      <div id="modalChannels"></div>
-      <button class="modal-close" onclick="closeModal()">Tutup</button>
+    <div class="container">
+        <div class="header">
+            <h1>⭐ StarBallTV</h1>
+            <p>Free Live Sports Streaming</p>
+        </div>
+        <div class="stats" id="stats">Loading channels...</div>
+        <div class="filters" id="filters"></div>
+        <div class="channels" id="channels"></div>
     </div>
-  </div>
 
-  <script>
-    const API = 'https://serverplayer2.pages.dev';
-    const MATCHES = API + '/api/matches.json';
-    let matches = [];
+    <script>
+        let allChannels = [];
+        let currentFilter = 'all';
 
-    // Helpers
-    const $ = s => document.getElementById(s);
-    const fmtD = i => new Date(i).toLocaleDateString('en-US',{day:'numeric',month:'short'});
-    const fmtT = i => new Date(i).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false});
-    const fmtTZ = () => { const o=-new Date().getTimezoneOffset(),h=Math.floor(Math.abs(o)/60),m=Math.abs(o)%60; return 'UTC'+(o>=0?'+':'-')+h+(m?':'+String(m).padStart(2,'0'):''); };
-    const status = m => { const n=Date.now(),s=new Date(m.dateISO).getTime(),e=m.showEnd?new Date(m.showEnd).getTime():s+2.5*36e5; return n>=e?'ended':n>=s?'live':'upcoming'; };
-    const countdown = m => { const d=new Date(m.dateISO).getTime()-Date.now(); if(d<=0)return''; const h=Math.floor(d/36e5),mi=Math.floor((d%36e5)/6e4),s=Math.floor((d%6e4)/1e3); return h?h+'h '+mi+'m':mi?mi+'m '+s+'s':''; };
-    const isSpecial = c => /formula|f1|ufc|boxing|moto|tennis|golf|cricket/i.test(c);
+        async function loadChannels() {
+            try {
+                const res = await fetch('/matches.json');
+                allChannels = await res.json();
 
-    // Card HTML
-    function cardHTML(m) {
-      const st=status(m), cd=countdown(m), sp=isSpecial(m.competition);
-      const slug=(m.link||'').split('/').pop().replace('.html','');
-      return `<div class="card ${st}" onclick="openModal('${slug}','${m.competition.replace(/'/g,"")} - ${m.home.name} vs ${m.away.name}')">
-        <div class="card-top">
-          <span class="comp">${m.competition}</span>
-          <span class="time">${fmtD(m.dateISO)} ${fmtT(m.dateISO)} ${fmtTZ()}</span>
-        </div>
-        <div class="teams">
-          <div class="team"><img src="${m.home.logo}" alt="" loading="lazy" onerror="this.style.display='none'"><span class="team-name">${m.home.name}</span></div>
-          ${sp?'':'<span class="vs">VS</span>'}
-          <div class="team"><img src="${m.away.logo}" alt="" loading="lazy" onerror="this.style.display='none'"><span class="team-name">${m.away.name}</span></div>
-        </div>
-        <div class="card-bottom">
-          <span class="badge ${st}">${st.toUpperCase()}</span>
-          ${cd?'<span class="cd">'+cd+'</span>':''}
-          ${st==='live'?'<button class="watch-btn">Watch</button>':''}
-        </div>
-      </div>`;
-    }
+                // Get unique countries
+                const countries = [...new Set(allChannels.map(c => c.country))].sort();
 
-    // Render grid
-    function render() {
-      const comp=$('fComp').value, st=$('fStatus').value, q=$('fSearch').value.toLowerCase();
-      let list = matches.filter(m => {
-        if(comp!=='all' && m.competition!==comp) return false;
-        const s=status(m);
-        if(st!=='all' && s!==st) return false;
-        if(q && !(m.home.name+' '+m.away.name+' '+m.competition).toLowerCase().includes(q)) return false;
-        return true;
-      });
-      list.sort((a,b) => {
-        const o={live:0,upcoming:1,ended:2};
-        return o[status(a)]-o[status(b)] || new Date(a.dateISO)-new Date(b.dateISO);
-      });
-      $('grid').innerHTML = list.length ? list.map(cardHTML).join('') : '<div class="empty">No matches found</div>';
+                // Create filter buttons
+                const filtersEl = document.getElementById('filters');
+                filtersEl.innerHTML = `
+                    <button class="filter-btn active" onclick="filterChannels('all')">All (${allChannels.length})</button>
+                    ${countries.map(c => {
+                        const count = allChannels.filter(ch => ch.country === c).length;
+                        return `<button class="filter-btn" onclick="filterChannels('${c}')">${c} (${count})</button>`;
+                    }).join('')}
+                `;
 
-      // Update filter dropdown
-      const comps=[...new Set(matches.map(m=>m.competition))];
-      const sel=$('fComp'), cur=sel.value;
-      sel.innerHTML = '<option value="all">All Events</option>' + comps.map(c=>`<option value="${c}">${c}</option>`).join('');
-      sel.value = cur;
-    }
+                filterChannels('all');
+            } catch (err) {
+                document.getElementById('channels').innerHTML = `<div style="color: #ff4444;">Error loading channels: ${err.message}</div>`;
+            }
+        }
 
-    // Modal — fetch channel config, open direct link
-    async function openModal(slug, title) {
-      $('modalTitle').textContent = title;
-      $('modalChannels').innerHTML = '<div style="text-align:center;padding:20px"><div class="spinner" style="display:inline-block"></div></div>';
-      $('overlay').classList.add('active');
-      try {
-        const r = await fetch(API+'/serv/'+slug+'.json?'+Date.now());
-        if(!r.ok) throw new Error('No config');
-        const config = await r.json();
-        renderChannels(config);
-      } catch(e) {
-        $('modalChannels').innerHTML = '<div style="color:#ff4444;text-align:center;padding:20px">Stream belum tersedia</div>';
-      }
-    }
+        function filterChannels(country) {
+            currentFilter = country;
+            const filtered = country === 'all' ? allChannels : allChannels.filter(c => c.country === country);
 
-    function play(url) {
-      // Go through redirect page to strip referrer (allow.js checks document.referrer)
-      window.location.href = 'go.html?u=' + encodeURIComponent(url);
-    }
+            document.getElementById('stats').textContent = `Showing ${filtered.length} of ${allChannels.length} channels`;
 
-    function renderChannels(config) {
-      const c = $('modalChannels');
-      c.innerHTML = '';
-      const groups = config.buttonsData || {};
-      for(const [lang, channels] of Object.entries(groups)) {
-        const div = document.createElement('div');
-        div.className = 'ch-group';
-        div.innerHTML = `<div class="ch-group-label">${lang}</div>`;
-        const list = document.createElement('div');
-        list.className = 'ch-list';
-        channels.forEach((ch, i) => {
-          const url = ch.path.startsWith('http') ? ch.path : API + ch.path;
-          const label = ch.label === 'CH Auto' ? `${lang} ${i+1}` : ch.label;
-          const btn = document.createElement('button');
-          btn.className = 'ch-link';
-          btn.innerHTML = `<span class="icon">▶</span> ${label}`;
-          btn.onclick = (e) => { e.stopPropagation(); play(url); };
-          list.appendChild(btn);
-        });
-        div.appendChild(list);
-        c.appendChild(div);
-      }
-    }
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.includes(country === 'all' ? 'All' : country)) {
+                    btn.classList.add('active');
+                }
+            });
 
-    function closeModal() { $('overlay').classList.remove('active'); }
-    document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
-    $('fComp').addEventListener('change', render);
-    $('fStatus').addEventListener('change', render);
-    $('fSearch').addEventListener('input', render);
+            // Render channels
+            const channelsEl = document.getElementById('channels');
+            channelsEl.innerHTML = filtered.map(ch => `
+                <div class="channel" onclick="watchChannel('${ch.slug}')">
+                    <div class="channel-name">
+                        ${ch.name}
+                        <span class="live-badge">LIVE</span>
+                    </div>
+                    <div class="channel-country">${ch.country} • ${ch.type}</div>
+                </div>
+            `).join('');
+        }
 
-    // Load matches
-    async function load() {
-      try {
-        const r = await fetch(MATCHES+'?t='+Date.now());
-        matches = await r.json();
-        render();
-      } catch(e) {
-        $('grid').innerHTML = '<div class="empty">Gagal load jadwal</div>';
-      }
-    }
-    setInterval(load, 30000);
-    setInterval(render, 1000);
-    load();
-  </script>
+        function watchChannel(slug) {
+            window.location.href = `/watch?servid=${slug}&id=0`;
+        }
+
+        loadChannels();
+    </script>
 </body>
 </html>
